@@ -1,0 +1,1 @@
+# Full Syllabus\n\n(Generated from `SYLLABUS.md`)\n
