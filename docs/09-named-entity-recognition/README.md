@@ -1,57 +1,54 @@
 # 09. Named Entity Recognition
 
-## 1. What this topic is
-This module covers Named Entity Recognition (NER), the process of locating and classifying proper nouns (people, places, organizations) and numerical data (dates, money) within raw text.
+## 1. Topic Overview
+This module covers Named Entity Recognition (NER), the critical Information Extraction process of locating and classifying proper nouns (people, places, organizations) and numerical data (dates, money) within raw text.
 
-## 2. Why it matters in NLP
-NER is the cornerstone of Information Extraction. If you want to build a system that reads financial news and alerts you whenever a "COMPANY" mentions a "MONEY" amount regarding an "EVENT", you must use an NER model.
+```mermaid
+mindmap
+  root((Named Entity Recognition))
+    Entity Types
+      PERSON
+      ORGANIZATION
+      LOCATION
+      GPE (Geo-Political Entity)
+      DATE / TIME
+    Tagging Schemes
+      BIO (Begin, Inside, Outside)
+      BILOU
+    Evaluation Metrics
+      Strict Match (Exact boundary & class)
+      Partial Match (Overlap allowed)
+    Entity Linking
+      Disambiguation
+      Knowledge Base (Wikipedia)
+```
 
-## 3. What the student will learn
-- The standard CoNLL-2003 entity types.
-- How to apply BIO encoding to multi-token entities.
-- How to extract entities from BIO tags programmatically.
-- The difference between Strict and Partial evaluation metrics.
-- The concept of Entity Linking (Disambiguation).
+## 2. Learning Path
+1. [Named Entity Recognition Fundamentals](ner-fundamentals.md)
+2. [NER Tagging and Evaluation](ner-tagging-and-evaluation.md)
+3. [Entity Linking](entity-linking.md)
 
-## 4. Prerequisites
+## 3. Real-World Applications
+- **Financial Intelligence**: If you want to build a trading algorithm that reads financial news and alerts you whenever a specific `ORGANIZATION` announces a `MONEY` amount regarding an acquisition, you must use an NER model.
+- **Customer Support Routing**: Automatically scanning incoming support tickets to extract `PRODUCT_NAME` and `ORDER_ID` to route the ticket to the correct specialized department.
+- **Search Enhancement**: Instead of just matching keywords, modern search engines extract entities from your query to understand that "Washington" refers to `PERSON` (George Washington) vs `GPE` (Washington State) depending on the context.
+
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★☆☆☆☆ (Very Low - Basic Precision/Recall concepts)
+- **Implementation Difficulty**: ★★☆☆☆ (Low - The BIO extraction logic requires some careful loop tracking in Python)
+- **Exam Importance**: **High**. Expect to be given a raw sentence and asked to manually tag it using BIO format for specified entities. You may also be asked to distinguish between NER and Entity Linking.
+
+## 5. Prerequisites
 - [08. POS Tagging & Sequence Labeling](../08-pos-tagging-and-sequence-labeling/README.md)
 
-## 5. Complete subtopic list
-- [Named Entity Recognition Fundamentals](ner-fundamentals.md)
-- [NER Tagging and Evaluation](ner-tagging-and-evaluation.md)
-- [Entity Linking](entity-linking.md)
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 8.3 & 17.1.
 
-## 6. Recommended learning order
-Read sequentially.
+---
 
-## 7. Mathematical difficulty
-★☆☆☆☆ (Very Low - Basic Precision/Recall concepts)
-
-## 8. Implementation difficulty
-★★☆☆☆ (Low - The BIO extraction logic requires some careful loop tracking)
-
-## 9. Numerical-problem relevance
-None.
-
-## 10. Exam importance
-**High**. Expect to be given a sentence and asked to manually tag it using BIO format for specified entities.
-
-## 11. Common mistakes
-- Tagging words like "he" or "she" as PERSON entities. (NER generally only applies to *named* entities, proper nouns, not pronouns).
-- Failing to distinguish between NER (finding the string) and Entity Linking (resolving the string to a database).
-
-## 12. Related topics
-- [10. Language Identification](../10-language-identification/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Understand Strict vs Partial evaluation.
-- [ ] Know the difference between NER and Entity Linking.
-
-## 15. Implementation checklist
-- [ ] Implement the BIO extraction python script.
-
-## 16. Numerical-practice checklist
-- [ ] N/A
+### Can You Explain This?
+- [ ] I can list the four most common CoNLL-2003 entity types.
+- [ ] I understand why pronouns (like "he" or "she") are not tagged as entities.
+- [ ] I can extract multi-word entities programmatically from a list of BIO tags.
+- [ ] I can explain the difference between a Strict NER evaluation and a Partial NER evaluation.
+- [ ] I understand the difference between extracting an entity (NER) and disambiguating it (Entity Linking).
