@@ -1,7 +1,9 @@
 # 01. NLP Fundamentals
 
 ## 1. Topic Overview
-This module introduces the foundational concepts of Natural Language Processing (NLP). It establishes what NLP is, why human language is uniquely difficult for computers to process, and the core machine learning paradigms used to solve these problems.
+Language is inherently messy. It breaks rules, relies heavily on unspoken context, and constantly invents new words. That makes processing it computationally brutal. 
+
+This module strips away the hype and introduces exactly what Natural Language Processing (NLP) actually is. We cover why human language breaks traditional parsers, and the specific machine learning paradigms engineers use to force computers to understand text.
 
 ```mermaid
 mindmap
