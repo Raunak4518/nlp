@@ -4,24 +4,23 @@ with open('SOURCE-COVERAGE.md', 'r', encoding='utf-8') as f:
     content = f.read()
 
 mapping = {
-    "Bag of Words": "bag-of-words.md",
-    "Count vector": "bag-of-words.md",
-    "Binary word features": "bag-of-words.md",
+    "Probability basics": "probability-basics.md",
+    "Joint probability": "probability-basics.md",
+    "Conditional probability": "probability-basics.md",
+    "Marginal probability": "probability-basics.md",
+    "Probability normalization": "probability-basics.md",
+    "Probability numerical problems": "probability-basics.md",
     
-    "Term Frequency (TF)": "tf-idf.md",
-    "Document Frequency (DF)": "tf-idf.md",
-    "Inverse Document Frequency (IDF)": "tf-idf.md",
-    "TF-IDF": "tf-idf.md",
-    "TF-IDF numerical calculation": "tf-idf.md",
+    "Bayes theorem": "bayes-and-chain-rule.md",
+    "Chain rule": "bayes-and-chain-rule.md",
     
-    "Vector normalization": "cosine-similarity.md",
-    "Cosine similarity": "cosine-similarity.md",
-    "Cosine similarity numerical problems": "cosine-similarity.md",
+    "Relative frequency": "maximum-likelihood-estimation.md",
+    "Maximum Likelihood Estimation (MLE)": "maximum-likelihood-estimation.md",
 }
 
 for item, md_file in mapping.items():
-    pattern = rf"\| {re.escape(item)} \| 12-tf-idf-and-vector-semantics \| TBD \| PENDING \|"
-    replacement = f"| {item} | 12-tf-idf-and-vector-semantics | {md_file} | COMPLETE |"
+    pattern = rf"\| {re.escape(item)} \| 13-probability-foundations \| TBD \| PENDING \|"
+    replacement = f"| {item} | 13-probability-foundations | {md_file} | COMPLETE |"
     content = re.sub(pattern, lambda m: replacement, content)
 
 with open('SOURCE-COVERAGE.md', 'w', encoding='utf-8') as f:
