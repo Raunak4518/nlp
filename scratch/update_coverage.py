@@ -4,38 +4,24 @@ with open('SOURCE-COVERAGE.md', 'r', encoding='utf-8') as f:
     content = f.read()
 
 mapping = {
-    "Parsing definition": "cfg-and-constituency.md",
-    "Grammar": "cfg-and-constituency.md",
-    "Context-Free Grammar (CFG)": "cfg-and-constituency.md",
-    "Terminal": "cfg-and-constituency.md",
-    "Non-terminal": "cfg-and-constituency.md",
-    "Start symbol": "cfg-and-constituency.md",
-    "Production rule": "cfg-and-constituency.md",
-    "Derivation": "cfg-and-constituency.md",
-    "Leftmost derivation": "cfg-and-constituency.md",
-    "Rightmost derivation": "cfg-and-constituency.md",
-    "Parse tree": "cfg-and-constituency.md",
-    "Constituency parsing": "cfg-and-constituency.md",
-    "Bracketing": "cfg-and-constituency.md",
-    "Ambiguous grammar/sentence": "cfg-and-constituency.md",
-    "Resolving ambiguity with grammar": "cfg-and-constituency.md",
+    "Bag of Words": "bag-of-words.md",
+    "Count vector": "bag-of-words.md",
+    "Binary word features": "bag-of-words.md",
     
-    "Recursive-descent parsing": "parsing-algorithms.md",
-    "Top-down parsing": "parsing-algorithms.md",
-    "Bottom-up parsing": "parsing-algorithms.md",
-    "CYK parsing": "parsing-algorithms.md",
-    "Earley parsing concept": "parsing-algorithms.md",
+    "Term Frequency (TF)": "tf-idf.md",
+    "Document Frequency (DF)": "tf-idf.md",
+    "Inverse Document Frequency (IDF)": "tf-idf.md",
+    "TF-IDF": "tf-idf.md",
+    "TF-IDF numerical calculation": "tf-idf.md",
     
-    "Dependency parsing": "dependency-parsing.md",
-    "Head/dependent": "dependency-parsing.md",
-    "Dependency relations": "dependency-parsing.md",
-    "Root node": "dependency-parsing.md",
-    "CoNLL format": "dependency-parsing.md",
+    "Vector normalization": "cosine-similarity.md",
+    "Cosine similarity": "cosine-similarity.md",
+    "Cosine similarity numerical problems": "cosine-similarity.md",
 }
 
 for item, md_file in mapping.items():
-    pattern = rf"\| {re.escape(item)} \| 11-parsing-and-grammar \| TBD \| PENDING \|"
-    replacement = f"| {item} | 11-parsing-and-grammar | {md_file} | COMPLETE |"
+    pattern = rf"\| {re.escape(item)} \| 12-tf-idf-and-vector-semantics \| TBD \| PENDING \|"
+    replacement = f"| {item} | 12-tf-idf-and-vector-semantics | {md_file} | COMPLETE |"
     content = re.sub(pattern, lambda m: replacement, content)
 
 with open('SOURCE-COVERAGE.md', 'w', encoding='utf-8') as f:
