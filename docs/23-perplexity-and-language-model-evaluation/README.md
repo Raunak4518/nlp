@@ -1,56 +1,46 @@
 # 23. Perplexity & Language Model Evaluation
 
-## 1. What this topic is
-This module explains how we objectively measure and compare the quality of different statistical language models using Intrinsic Evaluation (Perplexity) and Extrinsic Evaluation (Downstream Tasks).
+## 1. Topic Overview
+This module explains the critical science of how we objectively measure and mathematically compare the quality of different statistical language models. It covers **Intrinsic Evaluation** (using the mathematical metric of Perplexity) and **Extrinsic Evaluation** (measuring how the model performs on real-world downstream tasks).
 
-## 2. Why it matters in NLP
-You cannot improve what you cannot measure. If you write a new smoothing algorithm, the only way to prove it is better than Kneser-Ney is to evaluate both models on an unseen test set and show that your model achieves a lower perplexity.
+```mermaid
+mindmap
+  root((Evaluation))
+    Intrinsic Evaluation
+      Perplexity (PP)
+      Log Probabilities (Avoid Underflow)
+      Measures "Surprise"
+      Lower is Better
+    Extrinsic Evaluation
+      Downstream Tasks
+      Machine Translation
+      Spell Check
+      Expensive but Real
+```
 
-## 3. What the student will learn
-- Why multiplying raw probabilities causes underflow, and how Log Probabilities fix it.
-- The definition of Cross-Entropy and Perplexity.
-- Why $PP = \infty$ if the model encounters an unseen word without smoothing.
-- The difference between Intrinsic and Extrinsic evaluation.
+## 2. Learning Path
+1. [Perplexity and Log Probabilities](perplexity-and-log-probabilities.md)
+2. [Intrinsic vs Extrinsic Evaluation](evaluation-methods.md)
 
-## 4. Prerequisites
-- [14. N-gram Language Models](../14-n-gram-language-models/README.md)
-- [15. Sparsity & Zero-Probability Problem](../15-sparsity-and-zero-probability-problem/README.md)
+## 3. Real-World Applications
+- **Algorithmic Benchmarking**: You cannot improve what you cannot mathematically measure. If you write a brand new smoothing algorithm, the only way to scientifically prove to the NLP community that it is better than Kneser-Ney is to evaluate both models on a massive, unseen test set and mathematically prove that your model achieves a significantly lower Perplexity score.
 
-## 5. Complete subtopic list
-- [Perplexity and Log Probabilities](perplexity-and-log-probabilities.md)
-- [Intrinsic vs Extrinsic Evaluation](evaluation-methods.md)
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★★★☆☆ (Medium - Requires an understanding of negative exponents, $N$th roots, and why log arithmetic is used to prevent computer underflow).
+- **Implementation Difficulty**: ★☆☆☆☆ (Very Low - Calculating perplexity in code is just a few lines of math).
+- **Exam Importance**: **Extremely High**. Calculating the exact Perplexity of a toy sentence given the probabilities of its constituent words is a guaranteed, classic numerical exam question.
 
-## 6. Recommended learning order
-Read sequentially.
+## 5. Prerequisites
+- [14. N-gram Language Models](../14-n-gram-language-models/README.md) (Crucial: How sentence probability is calculated via the Chain Rule).
+- [15. Sparsity & Zero-Probability Problem](../15-sparsity-and-zero-probability-problem/README.md) (Crucial: Understanding why $P=0$ breaks the Perplexity equation).
 
-## 7. Mathematical difficulty
-★★★☆☆ (Medium - Requires understanding negative exponents and nth roots).
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 3.
 
-## 8. Implementation difficulty
-★☆☆☆☆ (Very Low)
+---
 
-## 9. Numerical-problem relevance
-**Extremely High**. Calculating the perplexity of a toy sentence given the probabilities is a guaranteed exam question.
-
-## 10. Exam importance
-**Extremely High**.
-
-## 11. Common mistakes
-- Thinking that *higher* perplexity is better. Perplexity is a measure of "surprise", so *lower* is better.
-- Calculating perplexity using $P(W)^{1/N}$ instead of $P(W)^{-1/N}$. You must use the inverse!
-
-## 12. Related topics
-- [14. N-gram Language Models](../14-n-gram-language-models/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Memorize the formula for Perplexity.
-- [ ] Understand why we must add Log probabilities instead of multiplying raw probabilities.
-
-## 15. Implementation checklist
-- [ ] N/A
-
-## 16. Numerical-practice checklist
-- [ ] Calculate the perplexity of a 4-word sentence where the probability of each word is $0.1$.
+### Can You Explain This?
+- [ ] I can write the exact mathematical formula for Perplexity using an $N$th root.
+- [ ] I can explicitly state whether a *higher* or *lower* Perplexity score is better, and why.
+- [ ] I can explain what a "floating-point underflow" is and why we must use Log Probabilities to fix it.
+- [ ] I can explain the conceptual difference between Intrinsic and Extrinsic evaluation.
