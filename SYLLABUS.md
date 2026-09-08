@@ -1,5 +1,6 @@
 # NLP Syllabus
 
+
 ## 1. NLP Fundamentals
 ### 1.1 What is Natural Language Processing
 ### 1.2 Natural vs programming language
