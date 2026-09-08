@@ -4,28 +4,23 @@ with open('SOURCE-COVERAGE.md', 'r', encoding='utf-8') as f:
     content = f.read()
 
 mapping = {
-    "Laplace / Add-one smoothing": "laplace-smoothing.md",
-    "Laplace formula": "laplace-smoothing.md",
-    "Why +1 is added": "laplace-smoothing.md",
-    "Why denominator becomes +V": "laplace-smoothing.md",
-    "Seen-event probability after Laplace": "laplace-smoothing.md",
-    "Unseen-event probability after Laplace": "laplace-smoothing.md",
-    "Laplace limitations": "laplace-smoothing.md",
-    "Implement Laplace smoothing from scratch": "laplace-smoothing.md",
+    "Linear interpolation": "linear-interpolation.md",
+    "Unigram + bigram + trigram interpolation": "linear-interpolation.md",
+    "Interpolation weights λ": "linear-interpolation.md",
+    "λ1 + λ2 + λ3 = 1": "linear-interpolation.md",
+    "Fixed interpolation": "linear-interpolation.md",
+    "Interpolation vs backoff": "linear-interpolation.md",
     
-    "Add-k smoothing": "add-k-smoothing.md",
-    "Add-k formula": "add-k-smoothing.md",
-    "Choosing k": "add-k-smoothing.md",
-    "Grid search for k": "add-k-smoothing.md",
-    "Validation-set selection of k": "add-k-smoothing.md",
-    "Implement Add-k from scratch": "add-k-smoothing.md",
-    "Add-k numerical problems": "add-k-smoothing.md",
+    "Deleted interpolation": "estimating-weights.md",
+    "Estimating interpolation weights": "estimating-weights.md",
+    "Held-out data": "estimating-weights.md",
+    "Interpolation numerical problems": "estimating-weights.md",
 }
 
 for item, md_file in mapping.items():
-    pattern = rf"\| {re.escape(item)} \| 16-laplace-and-add-k-smoothing \| TBD \| PENDING \|"
-    replacement = f"| {item} | 16-laplace-and-add-k-smoothing | {md_file} | COMPLETE |"
-    content = re.sub(pattern, lambda m: replacement, content)
+    # Due to encoding issues (e.g. lambda weights?), I should be careful. 
+    # I noticed in the previous read of the syllabus they were rendered as `?` or `?1 + ?2 + ?3 = 1`.
+    # Let's write a python script to do this safely. Wait, my update_coverage.py handles exact match. Let me check what is in SOURCE-COVERAGE.md for those symbols.
+    pass
 
-with open('SOURCE-COVERAGE.md', 'w', encoding='utf-8') as f:
-    f.write(content)
+# I will write the python script to read lines, replace if it contains the topic name, and write back.
