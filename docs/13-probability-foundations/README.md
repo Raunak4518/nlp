@@ -41,7 +41,7 @@ Read sequentially.
 
 ## 12. Related topics
 - [14. N-gram Language Models](../14-n-gram-language-models/README.md)
-- [18. Naive Bayes Classification](../18-naive-bayes-classification/README.md)
+- [25. Text Classification](../25-text-classification/README.md)
 
 ## 13. Links to every subtopic
 (See section 5)

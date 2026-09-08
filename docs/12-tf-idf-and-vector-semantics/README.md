@@ -40,9 +40,6 @@ Read sequentially.
 - Using Euclidean distance instead of Cosine similarity.
 - Forgetting that $IDF = \log(N / DF)$, not $\log(DF / N)$.
 
-## 12. Related topics
-- [15. Word Embeddings & Word2Vec](../15-word-embeddings-and-word2vec/README.md)
-
 ## 13. Links to every subtopic
 (See section 5)
 

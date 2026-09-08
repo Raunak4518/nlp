@@ -41,7 +41,7 @@ Read sequentially.
 
 ## 12. Related topics
 - [03. Tokenization](../03-tokenization/README.md)
-- [26. Naive Bayes Classification](../26-naive-bayes-classification/README.md)
+- [25. Text Classification](../25-text-classification/README.md)
 
 ## 13. Links to every subtopic
 (See section 5)

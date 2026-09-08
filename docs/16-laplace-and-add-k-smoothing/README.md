@@ -42,7 +42,7 @@ Read sequentially.
 
 ## 12. Related topics
 - [17. Interpolation](../17-interpolation/README.md)
-- [18. Naive Bayes Classification](../18-naive-bayes-classification/README.md) (Naive Bayes heavily relies on Laplace smoothing).
+- [25. Text Classification](../25-text-classification/README.md) (Naive Bayes heavily relies on Laplace smoothing).
 
 ## 13. Links to every subtopic
 (See section 5)
