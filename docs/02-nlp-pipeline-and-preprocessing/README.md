@@ -1,52 +1,57 @@
-# NLP Pipeline & Preprocessing
+# 02. NLP Pipeline & Preprocessing
 
 ## 1. What this topic is
-(To be written)
+This module covers the critical first steps of any NLP project: gathering text data, ensuring the data splits are scientifically sound to avoid data leakage, and applying text cleaning and normalization to reduce noise.
 
 ## 2. Why it matters in NLP
-(To be written)
+"Garbage in, garbage out." The most advanced Transformer model in the world will fail if the text it receives is full of unhandled HTML tags or if the vocabulary was corrupted by data leakage during the training split.
 
 ## 3. What the student will learn
-(To be written)
+- The definition and causes of Data Leakage.
+- How to perform Regex-based text cleaning.
+- The tradeoffs of various normalization techniques (like lowercasing).
+- How to construct a vocabulary and handle unknown tokens.
 
 ## 4. Prerequisites
-- Review earlier modules.
+- [01. NLP Fundamentals](../01-nlp-fundamentals/README.md)
 
 ## 5. Complete subtopic list
-
+- [Data Collection and Splits](data-collection-and-splits.md)
+- [Text Cleaning and Normalization](text-cleaning-and-normalization.md)
+- [Vocabulary and Feature Engineering](vocabulary-and-features.md)
 
 ## 6. Recommended learning order
-(To be written)
+Read the modules sequentially.
 
 ## 7. Mathematical difficulty
-(To be written)
+★☆☆☆☆ (Very Low)
 
 ## 8. Implementation difficulty
-(To be written)
+★★☆☆☆ (Low - Basic Python string manipulation and Regular Expressions)
 
 ## 9. Numerical-problem relevance
-(To be written)
+None.
 
 ## 10. Exam importance
-(To be written)
+**Medium**. Expect theoretical questions on Data Leakage and practical questions asking you to write a Python function or Regex to clean a specific type of text.
 
 ## 11. Common mistakes
-(To be written)
+- Deduplicating data *after* splitting it, causing train/test contamination.
+- Building the vocabulary over the test set.
 
 ## 12. Related topics
-(To be written)
+- [03. Tokenization](../03-tokenization/README.md)
+- [04. Regular Expressions](../04-regular-expressions/README.md)
 
 ## 13. Links to every subtopic
 (See section 5)
 
 ## 14. Revision checklist
-- [ ] Theory understood
-- [ ] Formulas memorized
-- [ ] Practice completed
+- [ ] Understand Data Leakage
+- [ ] Understand `<UNK>` handling
 
 ## 15. Implementation checklist
-- [ ] Scratch implementation written
-- [ ] Edge cases tested
+- [ ] Wrote a Regex-based cleaning function from scratch
 
 ## 16. Numerical-practice checklist
-- [ ] At least 2 numerical problems solved manually
+- [ ] N/A
