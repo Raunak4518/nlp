@@ -1,0 +1,174 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* Base Palette overriding MkDocs Material Custom Properties */
+:root {
+  /* LIGHT MODE "Structural Ink" Palette */
+  --md-hue: 220; /* Base blueish hue for standard mkdocs elements if any bleed through */
+  --md-default-bg-color: #FDFDFD;
+  --md-default-fg-color: #1D2129;
+  --md-default-fg-color--light: #4B5563;
+  --md-default-fg-color--lighter: #9CA3AF;
+  
+  /* Accents */
+  --md-primary-fg-color: #2563EB; /* Syntax Blue */
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #E11D48; /* Semantic Crimson */
+
+  /* Typesetting */
+  --md-text-font: "Newsreader", serif;
+  --md-code-font: "JetBrains Mono", monospace;
+  --md-typeset-font: "Newsreader", serif;
+  
+  /* Structural Borders */
+  --md-default-bg-color--light: #F3F4F6;
+  --md-code-bg-color: #F8FAFC;
+  --structural-border: #E5E7EB;
+}
+
+[data-md-color-scheme="slate"] {
+  /* DARK MODE "Structural Ink" Palette */
+  --md-default-bg-color: #0A0C10;
+  --md-default-fg-color: #E5E7EB;
+  --md-default-fg-color--light: #9CA3AF;
+  --md-default-fg-color--lighter: #6B7280;
+  
+  /* Accents */
+  --md-primary-fg-color: #3B82F6; 
+  --md-accent-fg-color: #F43F5E; 
+  
+  /* Structural Borders */
+  --md-default-bg-color--light: #111827;
+  --md-code-bg-color: #0D1117;
+  --structural-border: #1F2937;
+}
+
+/* 
+  ========================================
+  TYPOGRAPHY OVERRIDES
+  ========================================
+*/
+
+/* Apply Serif to main body content */
+.md-typeset {
+  font-family: var(--md-text-font);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 70ch; /* Optimal reading length */
+}
+
+/* Apply Space Grotesk to Headings */
+.md-typeset h1, 
+.md-typeset h2, 
+.md-typeset h3, 
+.md-typeset h4, 
+.md-typeset h5, 
+.md-typeset h6,
+.md-header__title,
+.md-nav__title,
+.md-nav__item {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  letter-spacing: -0.01em;
+}
+
+/* Stronger structural h2 */
+.md-typeset h2 {
+  border-bottom: 1px solid var(--structural-border);
+  padding-bottom: 0.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 
+  ========================================
+  FLAT & BORDERED LAYOUT (NO SHADOWS)
+  ========================================
+*/
+
+/* Remove drop shadows from header, cards, and tabs */
+.md-header,
+.md-tabs {
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--structural-border);
+}
+
+/* Remove transition delays */
+* {
+  transition-duration: 0ms !important;
+}
+
+/* Code blocks and pre-formatted text */
+.md-typeset pre,
+.md-typeset code {
+  box-shadow: none !important;
+  border: 1px solid var(--structural-border);
+  border-radius: 4px; /* Minimal radius */
+}
+
+.md-typeset pre {
+  background-color: var(--md-code-bg-color);
+}
+
+/* 
+  ========================================
+  ADMONITIONS (ALERTS)
+  ========================================
+*/
+
+/* Remove colored backgrounds and shadows from admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+  background-color: transparent !important;
+  border: 1px solid var(--structural-border);
+  border-left: 4px solid var(--md-primary-fg-color);
+  box-shadow: none !important;
+  border-radius: 2px;
+}
+
+/* Adjust title styles within admonitions */
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--structural-border);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+}
+
+/* Danger / Warning admonition specific color */
+.md-typeset .warning,
+.md-typeset .danger,
+.md-typeset .caution {
+  border-left-color: var(--md-accent-fg-color);
+}
+
+/* 
+  ========================================
+  MISC DESIGN TWEAKS
+  ========================================
+*/
+
+/* Sidebar styling */
+.md-sidebar__scrollwrap {
+  border-right: 1px solid var(--structural-border);
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  border-right: none;
+  border-left: 1px solid var(--structural-border);
+}
+
+/* Buttons */
+.md-typeset .md-button {
+  border: 1px solid var(--md-primary-fg-color) !important;
+  background-color: transparent !important;
+  border-radius: 2px !important;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+}
+
+.md-typeset .md-button--primary {
+  background-color: var(--md-primary-fg-color) !important;
+  color: white !important;
+}
