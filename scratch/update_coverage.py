@@ -3,47 +3,35 @@ import re
 with open('SOURCE-COVERAGE.md', 'r', encoding='utf-8') as f:
     content = f.read()
 
-# Replace TBD and PENDING with the actual files for module 4
+# Replace TBD and PENDING with the actual files for module 5
 mapping = {
-    "Regex fundamentals": "regex-fundamentals.md",
-    "Literal characters": "regex-fundamentals.md",
-    "Wildcard .": "regex-fundamentals.md",
-    "Character classes []": "regex-fundamentals.md",
-    "Ranges [a-z], [A-Z], [0-9]": "regex-fundamentals.md",
-    "Negated classes [^...]": "regex-fundamentals.md",
-    "Quantifier *": "regex-fundamentals.md",
-    "Quantifier +": "regex-fundamentals.md",
-    "Quantifier ?": "regex-fundamentals.md",
-    "{m,n} repetition": "regex-fundamentals.md",
-    "Grouping ()": "regex-fundamentals.md",
-    "Alternation |": "regex-fundamentals.md",
-    "Start/end anchors ^ and $": "regex-fundamentals.md",
-    "Escaping special characters": "regex-fundamentals.md",
-    "\\d / \\D": "regex-fundamentals.md",
-    "\\w / \\W": "regex-fundamentals.md",
-    "\\s / \\S": "regex-fundamentals.md",
+    "Finite State Automaton definition": "fsa-fundamentals.md",
+    "Formal tuple M=(Q,Σ,δ,q0,F)": "fsa-fundamentals.md",
+    "States": "fsa-fundamentals.md",
+    "Alphabet": "fsa-fundamentals.md",
+    "Initial state": "fsa-fundamentals.md",
+    "Accepting/final states": "fsa-fundamentals.md",
+    "Transition function": "fsa-fundamentals.md",
+    "Regex → automaton concept": "fsa-fundamentals.md",
     
-    "Greedy matching": "advanced-regex-and-python.md",
-    "Non-greedy matching": "advanced-regex-and-python.md",
-    "search()": "advanced-regex-and-python.md",
-    "match()": "advanced-regex-and-python.md",
-    "findall()": "advanced-regex-and-python.md",
-    "finditer()": "advanced-regex-and-python.md",
-    "sub() / substitution": "advanced-regex-and-python.md",
-    "split()": "advanced-regex-and-python.md",
-    "Capturing groups": "advanced-regex-and-python.md",
+    "DFA definition": "dfa.md",
+    "DFA transition table": "dfa.md",
+    "DFA state-diagram construction": "dfa.md",
+    "DFA string acceptance": "dfa.md",
+    "Implement a generic DFA recognizer from scratch": "dfa.md",
     
-    "Regex for email extraction": "regex-applications.md",
-    "Regex for URL extraction": "regex-applications.md",
-    "Regex for phone/date/number extraction": "regex-applications.md",
-    "Regex for sentence boundaries": "regex-applications.md",
-    "Regex and finite automata relationship": "regex-applications.md",
+    "NFA definition": "nfa.md",
+    "NFA multiple transitions": "nfa.md",
+    "Epsilon transitions": "nfa.md",
+    "NFA string acceptance": "nfa.md",
+    "DFA vs NFA": "nfa.md",
+    "Implement an NFA recognizer from scratch": "nfa.md",
 }
 
 for item, md_file in mapping.items():
-    # Handle the fact that some items have backslashes that need double escaping
-    pattern = rf"\| {re.escape(item)} \| 04-regular-expressions \| TBD \| PENDING \|"
-    replacement = f"| {item} | 04-regular-expressions | {md_file} | COMPLETE |"
+    # Use re.escape on the item directly to handle weird chars safely
+    pattern = rf"\| {re.escape(item)} \| 05-finite-state-automata \| TBD \| PENDING \|"
+    replacement = f"| {item} | 05-finite-state-automata | {md_file} | COMPLETE |"
     content = re.sub(pattern, lambda m: replacement, content)
 
 with open('SOURCE-COVERAGE.md', 'w', encoding='utf-8') as f:
