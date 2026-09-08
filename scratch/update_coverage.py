@@ -4,23 +4,34 @@ with open('SOURCE-COVERAGE.md', 'r', encoding='utf-8') as f:
     content = f.read()
 
 mapping = {
-    "Probability basics": "probability-basics.md",
-    "Joint probability": "probability-basics.md",
-    "Conditional probability": "probability-basics.md",
-    "Marginal probability": "probability-basics.md",
-    "Probability normalization": "probability-basics.md",
-    "Probability numerical problems": "probability-basics.md",
+    "Language model definition": "language-models-and-ngrams.md",
+    "Next-token prediction": "language-models-and-ngrams.md",
+    "Unigram": "language-models-and-ngrams.md",
+    "Bigram": "language-models-and-ngrams.md",
+    "Trigram": "language-models-and-ngrams.md",
+    "4-gram / general N-gram": "language-models-and-ngrams.md",
+    "Word N-grams": "language-models-and-ngrams.md",
+    "Character N-grams": "language-models-and-ngrams.md",
+    "Number of n-grams = N-n+1": "language-models-and-ngrams.md",
+    "Vocabulary size": "language-models-and-ngrams.md",
     
-    "Bayes theorem": "bayes-and-chain-rule.md",
-    "Chain rule": "bayes-and-chain-rule.md",
+    "N-gram count generation": "n-gram-probabilities.md",
+    "MLE unigram probability": "n-gram-probabilities.md",
+    "MLE bigram probability": "n-gram-probabilities.md",
+    "MLE trigram probability": "n-gram-probabilities.md",
+    "Sentence probability": "n-gram-probabilities.md",
+    "N-gram probability numericals": "n-gram-probabilities.md",
     
-    "Relative frequency": "maximum-likelihood-estimation.md",
-    "Maximum Likelihood Estimation (MLE)": "maximum-likelihood-estimation.md",
+    "<s> start marker": "text-generation.md",
+    "</s> end marker": "text-generation.md",
+    "<UNK> unknown token": "text-generation.md",
+    "Next-word prediction using argmax": "text-generation.md",
+    "Random sentence generation": "text-generation.md",
 }
 
 for item, md_file in mapping.items():
-    pattern = rf"\| {re.escape(item)} \| 13-probability-foundations \| TBD \| PENDING \|"
-    replacement = f"| {item} | 13-probability-foundations | {md_file} | COMPLETE |"
+    pattern = rf"\| {re.escape(item)} \| 14-n-gram-language-models \| TBD \| PENDING \|"
+    replacement = f"| {item} | 14-n-gram-language-models | {md_file} | COMPLETE |"
     content = re.sub(pattern, lambda m: replacement, content)
 
 with open('SOURCE-COVERAGE.md', 'w', encoding='utf-8') as f:
