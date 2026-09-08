@@ -1,53 +1,46 @@
 # 31. Final Scratch-Implementation Projects
 
-## 1. What this topic is
-This is the capstone module. It compiles all the scratch-implementation Python functions built throughout the course into a single, unified reference document.
+## 1. Topic Overview
+This is the ultimate capstone module of the entire course. It compiles the core algorithms and "from scratch" Python implementations discussed throughout the syllabus into a single, unified algorithmic reference document. 
 
-## 2. Why it matters in NLP
-Understanding the math is only 50% of the battle. If you cannot translate the mathematical equations into performant Python code without relying on a library like HuggingFace or NLTK, you do not truly understand the algorithm.
+```mermaid
+mindmap
+  root((Capstone Algorithms))
+    Dynamic Programming
+      Minimum Edit Distance
+      Viterbi Algorithm
+    Language Modeling
+      Add-k Smoothing
+      Stupid Backoff
+      Interpolated Kneser-Ney
+    Text Processing
+      BPE Tokenization
+      Naive Bayes Classification
+      TF-IDF Extractive Summarization
+```
 
-## 3. What the student will learn
-- How to implement the Viterbi Algorithm.
-- How to implement Kneser-Ney, Stupid Backoff, and Add-k Smoothing.
-- How to implement a BPE Tokenizer.
-- How to calculate Perplexity and F1 programmatically.
+## 2. Learning Path
+1. [Scratch Implementations](scratch-implementations.md)
 
-## 4. Prerequisites
-- All prior modules.
+## 3. Real-World Applications
+- **Technical Interviews**: In Silicon Valley technical interviews for NLP Machine Learning Engineer or Data Scientist roles, you will almost certainly be asked to write one of these fundamental algorithms on a whiteboard without any internet access or libraries. 
+- **Production Debugging**: If you cannot translate mathematical equations into performant Python code from scratch, you cannot effectively debug a massive PyTorch or HuggingFace pipeline when it inevitably crashes in production.
 
-## 5. Complete subtopic list
-- [Scratch Implementations](scratch-implementations.md)
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★★★★☆ (High - Translating complex recursive mathematical definitions directly into iterative code).
+- **Implementation Difficulty**: ★★★★★ (Very High - This is the ultimate, uncompromising test of the course).
+- **Exam Importance**: **Extremely High**. If you can successfully code these algorithms from memory, you are virtually guaranteed to pass any university NLP exam.
 
-## 6. Recommended learning order
-Review the code in `scratch-implementations.md` and attempt to write them from memory in a blank Jupyter Notebook.
+## 5. Prerequisites
+- **All Prior Modules**. You must deeply understand the mathematical theory behind an algorithm before you can attempt to write it from scratch.
 
-## 7. Mathematical difficulty
-★★★★☆ (High - translating recursive definitions to code).
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin).
 
-## 8. Implementation difficulty
-★★★★★ (Very High - This is the ultimate test of the course).
+---
 
-## 9. Numerical-problem relevance
-**N/A**.
-
-## 10. Exam importance
-**Extremely High**. In technical interviews for NLP Engineering roles, you will almost certainly be asked to write one of these functions on a whiteboard.
-
-## 11. Common mistakes
-- Relying entirely on PyTorch/HuggingFace to do the heavy lifting in your career, resulting in a loss of foundational algorithmic knowledge.
-
-## 12. Related topics
-- All prior modules.
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Successfully code the Viterbi algorithm from memory.
-- [ ] Successfully code Interpolated Kneser-Ney from memory.
-
-## 15. Implementation checklist
-- [ ] Write a test suite for every function in the capstone file.
-
-## 16. Numerical-practice checklist
-- [ ] N/A
+### Can You Code This?
+- [ ] I can successfully code the Viterbi Algorithm from memory using a dynamic programming matrix.
+- [ ] I can successfully code the Minimum Edit Distance (Levenshtein) algorithm from memory.
+- [ ] I can successfully code a basic BPE (Byte-Pair Encoding) Tokenizer from memory.
+- [ ] I can successfully code Interpolated Kneser-Ney from memory.
