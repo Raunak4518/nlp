@@ -1,55 +1,46 @@
 # 21. Kneser-Ney Smoothing
 
-## 1. What this topic is
-This module introduces Kneser-Ney Smoothing, widely considered the most effective and sophisticated classical smoothing algorithm ever invented for NLP. It modifies the concept of Backoff by introducing Continuation Probabilities.
+## 1. Topic Overview
+This module introduces **Kneser-Ney Smoothing**, widely considered the absolute pinnacle, most mathematically effective, and most sophisticated classical smoothing algorithm ever invented for NLP. It radically alters the concept of Backoff by introducing a new statistical metric: **Continuation Probabilities (Context Diversity)**.
 
-## 2. Why it matters in NLP
-Before the invention of Word2Vec and modern Neural Networks around 2013, Interpolated Kneser-Ney was the undisputed state-of-the-art for statistical Language Modeling. Understanding it is the final boss of classical NLP probability theory.
+```mermaid
+mindmap
+  root((Kneser-Ney))
+    The Core Problem
+      High frequency != High diversity
+      The "Francisco" flaw
+    Continuation Probability
+      Based on Context Diversity
+      Not based on raw counts
+      Count of unique preceding words
+    The Algorithm
+      Absolute Discounting for Seen
+      Continuation Prob for Unseen
+      Recursive Application
+```
 
-## 3. What the student will learn
-- Why high-frequency words can ruin backoff models (the "Francisco" problem).
-- How to calculate Continuation Counts and Continuation Probabilities based on Context Diversity.
-- The mathematical formulation of Bigram Kneser-Ney.
-- How Kneser-Ney is applied recursively to higher-order models.
+## 2. Learning Path
+1. [Kneser-Ney Fundamentals](kneser-ney-fundamentals.md)
+2. [Interpolated and Recursive Kneser-Ney](interpolated-and-recursive-kneser-ney.md)
 
-## 4. Prerequisites
-- [17. Interpolation](../17-interpolation/README.md)
-- [20. Backoff & Discounting](../20-backoff-and-discounting/README.md)
+## 3. Real-World Applications
+- **The Classical State of the Art**: Before the invention of Word2Vec and modern Neural Networks around 2013 completely upended the field, Interpolated Kneser-Ney was the undisputed, dominant state-of-the-art algorithm for statistical Language Modeling. Understanding it is widely considered the "final boss" of classical NLP probability theory. 
 
-## 5. Complete subtopic list
-- [Kneser-Ney Fundamentals](kneser-ney-fundamentals.md)
-- [Interpolated and Recursive Kneser-Ney](interpolated-and-recursive-kneser-ney.md)
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★★★★☆ (High - The recursive mathematical definitions and lambda normalizers can be very difficult to track mentally).
+- **Implementation Difficulty**: ★★★★☆ (High - Building the specific context dictionary structures required for a fast, memory-efficient implementation is algorithmically complex).
+- **Exam Importance**: **Medium-High**. Calculating the Continuation Probability for a specific word given a small table of toy bigrams is a standard advanced numerical exam question.
 
-## 6. Recommended learning order
-Read sequentially.
+## 5. Prerequisites
+- [17. Interpolation](../17-interpolation/README.md) (Crucial: How lambda weights distribute probability).
+- [20. Backoff & Discounting](../20-backoff-and-discounting/README.md) (Crucial: How Absolute Discounting generates leftover mass).
 
-## 7. Mathematical difficulty
-★★★★☆ (High - The recursive definitions and lambda normalizers can be very hard to track).
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 3.
 
-## 8. Implementation difficulty
-★★★★☆ (High - Building the context dictionaries for a fast implementation is complex).
+---
 
-## 9. Numerical-problem relevance
-**High**. Calculating the Continuation Probability for a specific word given a small table of bigrams is a standard advanced exam question.
-
-## 10. Exam importance
-**Medium-High**.
-
-## 11. Common mistakes
-- Using the raw count of a word for the lower-order backoff model instead of the Continuation Count. The core principle of KN is that lower-order models use Continuation Counts!
-
-## 12. Related topics
-- [23. Perplexity & Language Model Evaluation](../23-perplexity-and-language-model-evaluation/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Understand why "Francisco" gets a very low Continuation Probability despite appearing 10,000 times in the corpus.
-- [ ] Memorize the formula for Continuation Probability.
-
-## 15. Implementation checklist
-- [ ] Trace the Bigram Kneser-Ney python script.
-
-## 16. Numerical-practice checklist
-- [ ] Calculate $P_{CONTINUATION}(\text{word})$ given a small list of observed bigrams.
+### Can You Explain This?
+- [ ] I can conceptually explain why high-frequency words can ruin traditional Backoff models (the "Francisco" problem).
+- [ ] I can explicitly define what a "Continuation Count" measures.
+- [ ] I can explain why Kneser-Ney abandons the raw Unigram MLE probability in favor of the Continuation Probability.

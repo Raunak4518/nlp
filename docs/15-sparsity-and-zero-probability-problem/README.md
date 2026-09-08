@@ -1,54 +1,48 @@
 # 15. Sparsity & Zero-Probability Problem
 
-## 1. What this topic is
-This module explains the mathematical limitations of N-gram Language Models and why simple Maximum Likelihood Estimation (MLE) fails in the real world.
+## 1. Topic Overview
+This module explores the fatal mathematical limitations of pure N-gram Language Models and explains why simple Maximum Likelihood Estimation (MLE) fails catastrophically when deployed in the real world. 
 
-## 2. Why it matters in NLP
-Language is incredibly sparse. You can train a model on the entire internet, and it will still encounter grammatically valid combinations of words it has never seen before on a daily basis. Understanding data sparsity is the key to understanding why smoothing algorithms and modern neural embeddings were invented.
+```mermaid
+mindmap
+  root((The Zero Problem))
+    Vocabulary Explosion
+      Exponential Growth (V^n)
+      Memory Limits
+    Data Sparsity
+      Most N-grams = 0
+      Zipf's Law
+    The Zero-Prob Crash
+      Chain Rule Multiplication
+      1 Zero = Total Zero
+    The OOV Distinction
+      Unknown Words (OOV)
+      Unseen N-grams (Known words, new order)
+```
 
-## 3. What the student will learn
-- Why the vocabulary size explodes exponentially ($|V|^n$).
-- What Data Sparsity is.
-- Why a single zero-probability n-gram forces the entire sentence probability to zero.
-- The difference between Unknown Words (OOV) and Unseen N-grams.
+## 2. Learning Path
+1. [Data Sparsity and Vocabulary Explosion](data-sparsity.md)
+2. [The Zero-Probability Problem](the-zero-probability-problem.md)
 
-## 4. Prerequisites
-- [14. N-gram Language Models](../14-n-gram-language-models/README.md)
+## 3. Real-World Applications
+- **Why Smoothers Exist**: You can train an N-gram model on the entire text of the internet, and it will *still* encounter perfectly valid, grammatically correct English phrases that it has never seen before on a daily basis. Understanding data sparsity is the key to understanding why Smoothing algorithms (like Laplace or Kneser-Ney) were invented.
+- **Why Neural Networks Took Over**: Modern Deep Learning (Word Embeddings and Transformers) largely replaced N-gram models specifically because neural networks map words to dense mathematical vectors, completely eliminating the sparse matrix problem discussed in this module.
 
-## 5. Complete subtopic list
-- [Data Sparsity and Vocabulary Explosion](data-sparsity.md)
-- [The Zero-Probability Problem](the-zero-probability-problem.md)
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★☆☆☆☆ (Very Low - Purely conceptual)
+- **Implementation Difficulty**: ★☆☆☆☆ (Very Low)
+- **Exam Importance**: **Medium-High**. The conceptual distinction between *Out-of-Vocabulary (OOV) Words* and *Unseen N-grams* is a classic trick question on midterm exams. This module provides the critical theoretical justification for the numerical problems you will face in the next module (Smoothing).
 
-## 6. Recommended learning order
-Read sequentially.
+## 5. Prerequisites
+- [14. N-gram Language Models](../14-n-gram-language-models/README.md) (Crucial: The Chain Rule multiplication)
 
-## 7. Mathematical difficulty
-★☆☆☆☆ (Very Low - Conceptual)
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 3.
 
-## 8. Implementation difficulty
-★☆☆☆☆ (Very Low)
+---
 
-## 9. Numerical-problem relevance
-None directly, but it provides the theoretical justification for the numerical problems in the next module (Laplace Smoothing).
-
-## 10. Exam importance
-**Medium-High**. The distinction between OOV words and Unseen N-grams is a classic trick question.
-
-## 11. Common mistakes
-- Thinking that `<UNK>` tokens solve the unseen n-gram problem (they only solve the unknown *word* problem).
-
-## 12. Related topics
-- [16. Laplace & Add-k Smoothing](../16-laplace-and-add-k-smoothing/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Understand why $P(A, B, C) = 0$ if $P(B|A) = 0$.
-- [ ] Know the difference between OOV and unseen n-grams.
-
-## 15. Implementation checklist
-- [ ] N/A
-
-## 16. Numerical-practice checklist
-- [ ] N/A
+### Can You Explain This?
+- [ ] I can explain why the number of possible N-grams grows exponentially.
+- [ ] I can explain what Data Sparsity means in the context of an N-gram count matrix.
+- [ ] I can explain exactly why a single unseen bigram causes an entire sentence's probability to become exactly $0.0$.
+- [ ] I can clearly explain the difference between an Unknown Word and an Unseen N-gram.

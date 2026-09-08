@@ -1,59 +1,49 @@
 # 16. Laplace & Add-k Smoothing
 
-## 1. What this topic is
-This module introduces the mathematical techniques used to solve the Zero-Probability problem by shifting probability mass from seen events to unseen events.
+## 1. Topic Overview
+This module introduces the mathematical algorithms used to solve the "Zero-Probability Problem" in classical NLP. It explains how to mathematically shift probability mass from sequences the model has seen, and legally redistribute it to sequences the model has not seen, ensuring the Chain Rule never collapses.
 
-## 2. Why it matters in NLP
-Without smoothing, classical N-gram language models are completely unusable in the real world because they cannot generalize to novel, valid word combinations.
+```mermaid
+mindmap
+  root((Smoothing))
+    The Core Concept
+      Discounting seen events
+      Redistributing mass
+      No zeros allowed
+    Laplace Add-1
+      Add 1 to numerator
+      Add |V| to denominator
+      Too aggressive
+    Add-k Smoothing
+      Add fraction k to numerator
+      Add k * |V| to denominator
+      Hyperparameter tuning
+```
 
-## 3. What the student will learn
-- The Laplace (+1) smoothing formula.
-- Why we must add $|V|$ (the vocabulary size) to the denominator.
-- Why Laplace smoothing performs poorly on large vocabularies.
-- The Add-k formula.
-- How to tune hyperparameters like $k$ using a Validation Set.
+## 2. Learning Path
+1. [Laplace Smoothing (Add-One)](laplace-smoothing.md)
+2. [Add-k Smoothing](add-k-smoothing.md)
 
-## 4. Prerequisites
+## 3. Real-World Applications
+- **Predictive Text Robustness**: Without smoothing, any classical autocomplete system or N-gram generator is completely unusable in the real world because it will physically crash or return a probability of 0.0 the moment a user types a valid, novel combination of words.
+- **Naive Bayes Spam Filters**: The famous Naive Bayes text classification algorithm mathematically relies on the exact same Laplace Smoothing formulas taught in this module to prevent the presence of a single unseen word from instantly clearing an email of being classified as Spam.
+
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★★★☆☆ (Medium - The formulas are simple, but students constantly forget to add the Vocabulary size $|V|$ to the denominator)
+- **Implementation Difficulty**: ★☆☆☆☆ (Very Low - The formulas are one-liners in code)
+- **Exam Importance**: **Extremely High**. Calculating smoothed probabilities by hand using Laplace or Add-k formulas is one of the most common numerical questions on NLP exams. 
+
+## 5. Prerequisites
 - [14. N-gram Language Models](../14-n-gram-language-models/README.md)
 - [15. Sparsity & Zero-Probability Problem](../15-sparsity-and-zero-probability-problem/README.md)
 
-## 5. Complete subtopic list
-- [Laplace Smoothing (Add-One)](laplace-smoothing.md)
-- [Add-k Smoothing](add-k-smoothing.md)
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 3.4.
 
-## 6. Recommended learning order
-Read sequentially.
+---
 
-## 7. Mathematical difficulty
-★★★☆☆ (Medium - Requires keeping track of vocabulary sizes and context counts)
-
-## 8. Implementation difficulty
-★☆☆☆☆ (Very Low - The formulas are one-liners)
-
-## 9. Numerical-problem relevance
-**Extremely High**. Calculating smoothed probabilities is one of the most common NLP exam questions.
-
-## 10. Exam importance
-**Extremely High**.
-
-## 11. Common mistakes
-- Adding $+1$ to the denominator instead of $+|V|$. You add $1$ to every word in the vocabulary, so the total added to the denominator is $1 \times |V|$.
-- In Add-k smoothing, adding $+k$ to the denominator instead of $+k|V|$.
-
-## 12. Related topics
-- [17. Interpolation](../17-interpolation/README.md)
-- [25. Text Classification](../25-text-classification/README.md) (Naive Bayes heavily relies on Laplace smoothing).
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Memorize the Laplace and Add-k formulas.
-- [ ] Understand why we tune $k$ on a validation set and not the training set.
-
-## 15. Implementation checklist
-- [ ] Write a python function for Add-k smoothing.
-
-## 16. Numerical-practice checklist
-- [ ] Calculate $P_{Laplace}(\text{word2} | \text{word1})$ given a small corpus.
-- [ ] Calculate $P_{Add-k}(\text{word2} | \text{word1})$ with $k=0.5$ given a small corpus.
+### Can You Explain This?
+- [ ] I can write the Laplace Smoothing formula for a Bigram model.
+- [ ] I can explain mathematically why we must add the Vocabulary size $|V|$ to the denominator.
+- [ ] I can explain why Laplace smoothing is considered "too aggressive" for large datasets.
+- [ ] I understand the difference between Laplace and Add-k smoothing.

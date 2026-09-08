@@ -1,58 +1,50 @@
 # 14. N-gram Language Models
 
-## 1. What this topic is
-This module introduces the classical approach to Language Modeling: predicting the probability of text sequences using N-grams and the Markov Assumption.
+## 1. Topic Overview
+This module introduces the classical approach to Language Modeling: predicting the mathematical probability of entire text sequences using N-grams and the Markov Assumption.
 
-## 2. Why it matters in NLP
-Every modern Large Language Model (like GPT-4) is fundamentally doing the exact same task described in this module: Next-Token Prediction. While modern models use deep neural networks instead of MLE counting tables, the mathematical framing of the task—calculating $P(w_n | w_1...w_{n-1})$—remains identical.
+```mermaid
+mindmap
+  root((Language Models))
+    The Chain Rule
+      Next-Token Prediction
+      Sequence Probability
+    The Markov Assumption
+      Unigram Model (0 history)
+      Bigram Model (1 history)
+      Trigram Model (2 history)
+    Text Generation
+      Start/End Boundaries
+      Unknown Tokens
+      Sampling vs Greed
+```
 
-## 3. What the student will learn
-- The formal definition of a Language Model.
-- The Markov assumption and how it defines Unigram, Bigram, and Trigram models.
-- How to calculate n-gram probabilities by hand using count data.
-- How start/end markers and `<UNK>` tokens are used in generation.
-- How to build a Bigram generator from scratch in Python.
+## 2. Learning Path
+1. [Language Models and N-grams](language-models-and-ngrams.md)
+2. [N-gram Probabilities](n-gram-probabilities.md)
+3. [Text Generation and Boundaries](text-generation.md)
 
-## 4. Prerequisites
-- [13. Probability Foundations](../13-probability-foundations/README.md)
+## 3. Real-World Applications
+- **Predictive Typing & Autocomplete**: When your smartphone keyboard suggests the next word, it is using a Language Model to calculate the highest probability next-token.
+- **Speech Recognition**: Acoustic models often confuse similar sounding words (like "recognize speech" vs "wreck a nice beach"). A Language Model is used to determine that "recognize speech" has a vastly higher statistical probability of being said in English, correcting the transcription.
+- **Generative AI (Modern LLMs)**: Every modern Large Language Model (like GPT-4) is fundamentally doing the exact same mathematical task described in this module: Next-Token Prediction via the Chain Rule of Probability. While modern models use neural networks instead of MLE counting tables, the framing of the task—calculating $P(w_n \mid w_1...w_{n-1})$—remains functionally identical.
+
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★★★☆☆ (Medium - Requires carefully tracking counts, numerators, and denominators without making careless arithmetic errors)
+- **Implementation Difficulty**: ★★★☆☆ (Medium - Writing the nested dictionaries for the Python bigram generator takes practice)
+- **Exam Importance**: **Extremely High**. "Given this 3-sentence toy corpus, what is the exact probability of the sentence X under a Bigram model?" is an absolute guarantee on any NLP exam. This is the core of statistical NLP.
+
+## 5. Prerequisites
+- [13. Probability Foundations](../13-probability-foundations/README.md) (Crucial: The Chain Rule and MLE)
 - [03. Tokenization](../03-tokenization/README.md)
 
-## 5. Complete subtopic list
-- [Language Models and N-grams](language-models-and-ngrams.md)
-- [N-gram Probabilities](n-gram-probabilities.md)
-- [Text Generation and Boundaries](text-generation.md)
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 3.1 & 3.2.
 
-## 6. Recommended learning order
-Read sequentially.
+---
 
-## 7. Mathematical difficulty
-★★★☆☆ (Medium - Requires carefully tracking counts and numerators/denominators)
-
-## 8. Implementation difficulty
-★★★☆☆ (Medium - Writing the nested dictionaries for the Python generator takes practice)
-
-## 9. Numerical-problem relevance
-**Extremely High**. "Given this 3-sentence corpus, what is the probability of the sentence X under a Bigram model?" is a guaranteed exam question.
-
-## 10. Exam importance
-**Extremely High**. This is the core of statistical NLP.
-
-## 11. Common mistakes
-- Dividing the count of a bigram by the total number of words in the corpus, instead of dividing it by the count of the unigram context.
-- Forgetting to include the probability of transitioning from `<s>` to the first word when calculating the probability of a full sentence.
-
-## 12. Related topics
-- [15. Sparsity & Zero-Probability Problem](../15-sparsity-and-zero-probability-problem/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Memorize the formula for the number of n-grams in a sentence: $N - n + 1$.
-- [ ] Understand why we can't use 10-gram models.
-
-## 15. Implementation checklist
-- [ ] Trace the Bigram Generator python script.
-
-## 16. Numerical-practice checklist
-- [ ] Calculate $P(\text{"I am Sam"}) = P(\text{"I"} | \text{"<s>"}) \times P(\text{"am"} | \text{"I"}) \times P(\text{"Sam"} | \text{"am"}) \times P(\text{"</s>"} | \text{"Sam"})$ using the toy corpus.
+### Can You Explain This?
+- [ ] I can formally define what a Language Model is mathematically trying to compute.
+- [ ] I can explain what the Markov Assumption is and why we are forced to use it.
+- [ ] I can explain why a Bigram model only looks at 1 previous word, not 2.
+- [ ] I can calculate the probability of a full sentence using Bigram probabilities and boundary tags.
