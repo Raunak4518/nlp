@@ -1,60 +1,48 @@
 # 03. Tokenization
 
-## 1. What this topic is
+## 1. Topic Overview
 This module covers how we slice a continuous string of text into the fundamental atomic units (tokens) that machine learning models process.
 
-## 2. Why it matters in NLP
-Tokenization dictates the size of your vocabulary. If you tokenize poorly, your vocabulary explodes, and the model encounters thousands of `<UNK>` (Unknown) tokens in production, destroying its ability to understand context.
+```mermaid
+mindmap
+  root((Tokenization))
+    Sentence Segmentation
+      Period Ambiguity
+      Heuristic Rules
+    Token Levels
+      Word-level
+      Character-level
+      Subword-level
+    Algorithms
+      Whitespace
+      Regex
+      N-grams
+```
 
-## 3. What the student will learn
-- The tradeoffs between character, word, and subword tokenization.
-- The mechanics and difficulties of sentence boundary disambiguation.
-- How to implement Whitespace, Punctuation, Regex, and N-gram tokenizers from scratch.
+## 2. Learning Path
+1. [Tokenization Fundamentals](tokenization-fundamentals.md)
+2. [Sentence Segmentation](sentence-segmentation.md)
+3. [Tokenization Algorithms & Scratch Implementations](tokenization-algorithms.md)
 
-## 4. Prerequisites
+## 3. Real-World Applications
+- **Handling Typos**: Subword tokenization (like BPE, covered later) allows models to handle typos by breaking unknown words into known subwords.
+- **Search Engines**: N-gram tokenization allows search engines to match exact multi-word phrases (like "machine learning") instead of just isolated words.
+
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★☆☆☆☆ (Very Low)
+- **Implementation Difficulty**: ★★★☆☆ (Medium - Requires algorithmic thinking for sliding windows and regex)
+- **Exam Importance**: **High**. Implementing an n-gram extractor from scratch is a highly common interview and exam question.
+
+## 5. Prerequisites
 - [02. NLP Pipeline & Preprocessing](../02-nlp-pipeline-and-preprocessing/README.md)
 - Basic Python string manipulation.
 
-## 5. Complete subtopic list
-- [Tokenization Fundamentals](tokenization-fundamentals.md)
-- [Sentence Segmentation](sentence-segmentation.md)
-- [Tokenization Algorithms & Scratch Implementations](tokenization-algorithms.md)
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 2.4.
 
-## 6. Recommended learning order
-Read the modules sequentially.
+---
 
-## 7. Mathematical difficulty
-★☆☆☆☆ (Very Low)
-
-## 8. Implementation difficulty
-★★★☆☆ (Medium - Requires algorithmic thinking for n-grams and regex)
-
-## 9. Numerical-problem relevance
-None.
-
-## 10. Exam importance
-**High**. Implementing an n-gram extractor from scratch is a highly common interview and exam question.
-
-## 11. Common mistakes
-- Forgetting that the number of n-grams in a sequence of length $N$ is $N - n + 1$.
-- Assuming periods always mark the end of a sentence.
-
-## 12. Related topics
-- [04. Regular Expressions](../04-regular-expressions/README.md)
-- [14. N-gram Language Models](../14-n-gram-language-models/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Understand why `<UNK>` tokens appear.
-- [ ] Memorize the formula for the number of n-grams.
-
-## 15. Implementation checklist
-- [ ] Wrote a pure whitespace tokenizer.
-- [ ] Wrote a regex tokenizer.
-- [ ] Wrote an n-gram extractor.
-- [ ] Wrote a rule-based sentence segmenter.
-
-## 16. Numerical-practice checklist
-- [ ] N/A
+### Can You Explain This?
+- [ ] I can explain the tradeoffs between word-level and character-level tokenization.
+- [ ] I can write a Python function to extract n-grams from a list of tokens.
+- [ ] I can calculate exactly how many n-grams will be produced by a sequence of length $N$.

@@ -1,56 +1,56 @@
 # 06. Finite State Transducers & Morphology
 
-## 1. What this topic is
-This module introduces Morphology (the linguistic study of word formation) and Finite State Transducers (FSTs), the computational tool used to model morphological rules.
+## 1. Topic Overview
+This module introduces **Morphology** (the linguistic study of how words are formed from smaller units) and **Finite State Transducers** (FSTs), the computational engines used to mathematically model morphological rules.
 
-## 2. Why it matters in NLP
-Languages like English have millions of valid word forms, but they are generated from a much smaller set of roots and affixes. If a system encounters the word "antidisestablishmentarianisms", it won't be in the dictionary. An FST-based morphological analyzer is required to break it down into known components so the system can infer its meaning.
+```mermaid
+mindmap
+  root((FSTs & Morphology))
+    Morphology
+      Morphemes
+      Roots vs Stems
+      Affixes (Prefix/Suffix)
+    Linguistic Rules
+      Inflectional
+        Plurals
+        Tense
+      Derivational
+        Part of Speech change
+        Meaning change
+    FSTs
+      Two-Tape Architecture
+        Input Tape
+        Output Tape
+      Bidirectionality
+        Generation
+        Analysis
+```
 
-## 3. What the student will learn
-- Linguistic definitions of Morphs, Morphemes, Roots, and Stems.
-- The critical difference between Inflectional and Derivational morphology.
-- How to handle English plural and verb rules.
-- How Finite State Transducers (FSTs) differ from FSAs.
-- How to implement a basic FST in Python to handle morphological generation.
+## 2. Learning Path
+1. [Morphology Fundamentals](morphology-fundamentals.md)
+2. [Finite State Transducers](finite-state-transducers.md)
 
-## 4. Prerequisites
+## 3. Real-World Applications
+- **Handling Unknown Words**: If a search engine encounters the word "antidisestablishmentarianisms", it won't be in a standard dictionary. An FST-based morphological analyzer breaks it down into known roots and affixes so the system can infer its meaning.
+- **Spell Checkers**: FSTs can generate all valid morphological variants of a root word to verify if a user's spelling is linguistically possible.
+- **Machine Translation**: In morphologically rich languages like Turkish or Finnish, a single word can contain the meaning of an entire English sentence. FSTs are required to parse the sentence out of the single word before translating.
+
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★☆☆☆☆ (Very Low)
+- **Implementation Difficulty**: ★★★☆☆ (Medium - Understanding the two-tape FST concept in code requires careful tracking)
+- **Exam Importance**: **Medium-High**. The distinction between inflectional and derivational morphology is a guaranteed multiple-choice or short-answer question. You may also be asked to draw an FST for a simple spelling rule (like `y` to `ies`).
+
+## 5. Prerequisites
 - [05. Finite State Automata](../05-finite-state-automata/README.md)
 
-## 5. Complete subtopic list
-- [Morphology Fundamentals](morphology-fundamentals.md)
-- [Finite State Transducers](finite-state-transducers.md)
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 3.
+- 🎓 **Advanced Reading**: [Finite State Morphology](https://web.stanford.edu/~jurafsky/slp3/3.pdf)
 
-## 6. Recommended learning order
-Read sequentially.
+---
 
-## 7. Mathematical difficulty
-★☆☆☆☆ (Very Low)
-
-## 8. Implementation difficulty
-★★★☆☆ (Medium - Understanding the two-tape FST concept in code requires careful tracking)
-
-## 9. Numerical-problem relevance
-None.
-
-## 10. Exam importance
-**Medium-High**. The distinction between inflectional and derivational morphology is a guaranteed multiple-choice or short-answer question.
-
-## 11. Common mistakes
-- Confusing a Morph (the physical letters) with a Morpheme (the abstract meaning).
-- Assuming FSTs can only run in one direction (they are bidirectional).
-
-## 12. Related topics
-- [07. Stemming & Lemmatization](../07-stemming-and-lemmatization/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Understand Inflection vs Derivation.
-- [ ] Understand why FSTs are used instead of dictionaries.
-
-## 15. Implementation checklist
-- [ ] Trace the Plural FST code with the input `"box+#"`.
-
-## 16. Numerical-practice checklist
-- [ ] N/A
+### Can You Explain This?
+- [ ] I can distinguish between a Morph, a Morpheme, and an Allomorph.
+- [ ] I can explain the difference between Inflectional and Derivational morphology.
+- [ ] I understand how a Finite State Transducer differs from a Finite State Automaton.
+- [ ] I can explain what is meant by the "bidirectionality" of an FST.

@@ -1,82 +1,97 @@
-# Advanced Regex and Python implementations
+# Advanced Regex and Python Implementations
 
-## 1. Greedy vs Non-Greedy Matching
-By default, regex quantifiers (`*`, `+`, `?`, `{m,n}`) are **greedy**. They match as *much* text as possible.
+## 1. Greedy vs. Non-Greedy Matching
+By default, regex quantifiers (`*`, `+`, `?`, `{m,n}`) are **greedy**. They match as *much* text as possible while still allowing the overall pattern to match.
 
 ### The Greedy Problem
-Suppose you have HTML text: `<div>Hello</div><div>World</div>`
-And you want to extract `<div>Hello</div>`.
-You write the regex: `<div>.*</div>`
-- **Result**: It matches the ENTIRE string `<div>Hello</div><div>World</div>` because `.*` greedily consumes everything until the *last* `</div>`.
+Suppose you have an HTML string and you want to extract the first `<div>` tag.
+- **Text**: `"<div>Hello</div><div>World</div>"`
+- **Regex**: `<div>.*</div>`
+
+You might expect it to match `<div>Hello</div>`. 
+**Result**: It matches the ENTIRE string `"<div>Hello</div><div>World</div>"`. 
+**Why?**: Because `.*` greedily consumes everything in the string. It goes all the way to the end, then backtracks just enough to find the *last* `</div>`.
 
 ### The Non-Greedy Solution
-Appending a `?` to a quantifier makes it **non-greedy** (lazy). It matches as *little* text as possible.
-- Regex: `<div>.*?</div>`
-- **Result**: It correctly matches `<div>Hello</div>` and `<div>World</div>` separately.
+Appending a `?` to a quantifier makes it **non-greedy** (or lazy). It matches as *little* text as possible.
+- **Regex**: `<div>.*?</div>`
+- **Result**: It correctly matches `"<div>Hello</div>"`. The `.*?` stops at the *first* `</div>` it sees.
+
+---
 
 ## 2. Capturing Groups
-Parentheses `()` do more than just group logic; they **capture** the text that was matched by the regex inside them so it can be extracted later.
+Parentheses `()` do more than just group logic for OR statements; they **capture** the text that was matched by the regex inside them so it can be extracted later.
 
-If you match `(\w+)@(\w+\.\w+)` against "test@example.com":
-- Group 0 (the full match): "test@example.com"
-- Group 1: "test"
-- Group 2: "example.com"
+If you match `(\w+)@(\w+\.\w+)` against `"test@example.com"`:
+- **Group 0** (The full match): `"test@example.com"`
+- **Group 1** (The first set of parentheses): `"test"`
+- **Group 2** (The second set of parentheses): `"example.com"`
 
-## 3. Python `re` Module Functions
-Python handles regex through the built-in `re` module.
+This is incredibly useful for information extraction, allowing you to split the username and domain of an email instantly.
 
-### `re.search(pattern, string)`
-Scans through a string, looking for the **first location** where the pattern produces a match. Returns a Match object or `None`.
-```python
-import re
-match = re.search(r'\d+', 'I have 2 apples and 3 bananas')
-print(match.group()) # Output: '2'
-```
+---
 
-### `re.match(pattern, string)`
-Only looks for a match at the **absolute beginning** of the string.
-```python
-match1 = re.match(r'\d+', '2 apples') # Matches '2'
-match2 = re.match(r'\d+', 'I have 2') # Returns None
-```
+## 3. Python's `re` Module
 
-### `re.findall(pattern, string)`
-Finds **all** non-overlapping matches and returns them as a list of strings.
-```python
-print(re.findall(r'\d+', 'I have 2 apples and 3 bananas')) 
-# Output: ['2', '3']
-```
+Python handles regex through the built-in `re` module. Here are the 5 essential functions you must know.
 
-### `re.finditer(pattern, string)`
-Like `findall`, but returns an iterator of Match objects, allowing you to get the span (start and end indices) of each match.
-```python
-for m in re.finditer(r'\d+', 'A 2 B 3'):
-    print(f"Found {m.group()} at {m.span()}")
-```
+| Function | Purpose | Returns |
+| :--- | :--- | :--- |
+| `re.search()` | Scans the whole string for the **first** match. | `Match` object or `None` |
+| `re.match()` | Checks for a match ONLY at the **absolute start** of the string. | `Match` object or `None` |
+| `re.findall()` | Finds **all** non-overlapping matches. | `List` of strings |
+| `re.finditer()`| Like findall, but provides positions. | Iterator of `Match` objects |
+| `re.sub()` | Replaces matches with a new string. | `String` |
 
-### `re.sub(pattern, repl, string)`
-Replaces occurrences of the pattern with the replacement string. Extremely useful for text cleaning.
-```python
-clean = re.sub(r'\d+', 'NUM', 'Call 911 for emergency 112')
-print(clean) # Output: 'Call NUM for emergency NUM'
-```
+### Try It Yourself
 
-### `re.split(pattern, string)`
-Splits the string by the occurrences of the pattern.
-```python
-parts = re.split(r'\s*,\s*', 'apple, banana , cherry')
-print(parts) # Output: ['apple', 'banana', 'cherry']
-```
+??? question "Trace `re.match()` vs `re.search()`"
+    ```python
+    import re
+    text = "I have 2 apples"
+    
+    # re.match only looks at the start ("I"). It fails.
+    print(re.match(r'\d+', text)) # Output: None
+    
+    # re.search scans until it finds the first match.
+    print(re.search(r'\d+', text).group()) # Output: '2'
+    ```
+
+??? question "Trace `re.sub()` for Text Cleaning"
+    ```python
+    import re
+    text = "Call 911 for emergency 112"
+    
+    # Replace all digit blocks with the string 'NUM'
+    clean = re.sub(r'\d+', 'NUM', text)
+    print(clean) # Output: 'Call NUM for emergency NUM'
+    ```
+
+---
 
 ## 4. Exam Preparation
-### Must Be Able To Calculate
-Know the difference in output between `.*` and `.*?`.
 
-### Likely Practical Question
-**Question**: Write a Python script using the `re` module that replaces all vowels in a string with an underscore `_`.
-**Answer**:
-```python
-import re
-text = "Natural Language Processing"
-result = re.sub(r'[aeiouAEIOU]', '_', text)
-```
+### How to Write This in an Exam
+
+**5-Mark Question**: Explain the difference between Greedy and Non-Greedy regex matching. Provide a regex example and a sample string to illustrate your point.
+> **Answer**: Greedy quantifiers (like `*` or `+`) match as much text as possible. Non-greedy (lazy) quantifiers (created by appending `?`, like `*?` or `+?`) match as little text as possible. 
+> For example, given the string `<bold>text</bold>`:
+> - The greedy regex `<.*>` will match the entire string `<bold>text</bold>` because `.*` consumes everything until the final `>`.
+> - The non-greedy regex `<.*?>` will match only `<bold>` because `.*?` stops at the first `>` it encounters.
+
+**3-Mark Question**: Write a Python script using the `re` module that takes a string and replaces all vowels (both lowercase and uppercase) with an underscore `_`.
+> **Answer**:
+> ```python
+> import re
+> text = "Natural Language"
+> result = re.sub(r'[aeiouAEIOU]', '_', text)
+> # result is "N_t_r_l L_ng__g_"
+> ```
+
+---
+
+### Can You Explain This?
+- [ ] I can explain why `.*` is greedy and how to make it non-greedy.
+- [ ] I understand the difference between `re.search` and `re.match` in Python.
+- [ ] I can write a `re.sub` command to perform basic text replacement.
+- [ ] I can explain what a capturing group is.

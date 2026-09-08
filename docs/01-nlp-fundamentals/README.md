@@ -1,62 +1,57 @@
 # 01. NLP Fundamentals
 
-## 1. What this topic is
-This module introduces the foundational concepts of Natural Language Processing (NLP), establishing what it is, why human language is uniquely difficult for computers to process, and the core machine learning paradigms used to solve these problems.
+## 1. Topic Overview
+This module introduces the foundational concepts of Natural Language Processing (NLP). It establishes what NLP is, why human language is uniquely difficult for computers to process, and the core machine learning paradigms used to solve these problems.
 
-## 2. Why it matters in NLP
-Before diving into algorithms and mathematics, you must understand the problem space. Knowing the difference between token classification and sequence generation is critical for designing the architecture of any NLP system.
+```mermaid
+mindmap
+  root((NLP Fundamentals))
+    What is NLP?
+      Definition
+      AI vs ML vs NLP
+    Challenges
+      Lexical Ambiguity
+      Syntactic Ambiguity
+      Semantic Ambiguity
+      Pragmatic Ambiguity
+    ML Foundations
+      Training
+      Testing
+      Inductive Bias
+    Core Tasks
+      Classification
+      Sequence Labeling
+      Generation
+```
 
-## 3. What the student will learn
-- The definition and scope of NLP compared to ML/AI.
-- The 4 types of linguistic ambiguity.
-- The difference between spoken and written language processing.
-- The foundational concepts of ML (Train/Test splits, Inductive Bias).
-- The core NLP tasks and applications.
-- The standard NLP preprocessing pipeline.
+## 2. Learning Path
+1. [What is NLP?](what-is-nlp.md)
+2. [Challenges in NLP](challenges-in-nlp.md)
+3. [Machine Learning Foundations](machine-learning-foundations.md)
+4. [Core NLP Tasks](core-nlp-tasks.md)
+5. [NLP Applications & Pipeline](nlp-applications.md)
 
-## 4. Prerequisites
+## 3. Real-World Applications
+- **Spam Filtering**: Automatically detecting malicious emails.
+- **Machine Translation**: Google Translate.
+- **Virtual Assistants**: Siri and Alexa mapping voice to text and text to intent.
+
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★☆☆☆☆ (Purely conceptual)
+- **Implementation Difficulty**: ★☆☆☆☆ (No coding required)
+- **Exam Importance**: **High**. Expect short-answer and conceptual questions asking you to define ambiguity or categorize an application into a core task.
+
+## 5. Prerequisites
 - Basic understanding of what a computer program is.
 
-## 5. Complete subtopic list
-- [What is NLP?](what-is-nlp.md)
-- [Challenges in NLP](challenges-in-nlp.md)
-- [Machine Learning Foundations](machine-learning-foundations.md)
-- [Core NLP Tasks](core-nlp-tasks.md)
-- [NLP Applications & Pipeline](nlp-applications.md)
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 1.
+- 🎓 **Course**: Stanford CS224N (Introduction to NLP).
 
-## 6. Recommended learning order
-Read the modules in the exact order listed above.
+---
 
-## 7. Mathematical difficulty
-★☆☆☆☆ (Very Low - Purely conceptual)
-
-## 8. Implementation difficulty
-★☆☆☆☆ (Very Low - No coding required for foundations)
-
-## 9. Numerical-problem relevance
-None.
-
-## 10. Exam importance
-**High** for short-answer and conceptual questions. Expect questions asking you to define ambiguity, contrast NLP with CL, or categorize an application into a core task.
-
-## 11. Common mistakes
-- Confusing NLP (engineering) with Computational Linguistics (science).
-- Misidentifying the validation set as the testing set.
-- Believing that Extractive and Abstractive summarization use the same underlying ML models.
-
-## 12. Related topics
-- [02. NLP Pipeline & Preprocessing](../02-nlp-pipeline-and-preprocessing/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Theory understood
-- [ ] Definitions of 4 ambiguities memorized
-- [ ] Extractive vs Abstractive distinction clear
-
-## 15. Implementation checklist
-- [ ] N/A
-
-## 16. Numerical-practice checklist
-- [ ] N/A
+### Can You Explain This?
+- [ ] I can define NLP and distinguish it from Computational Linguistics.
+- [ ] I can give a concrete example of the 4 types of ambiguity.
+- [ ] I can explain the difference between a Training set and a Test set.
+- [ ] I can categorize standard products (like Google Translate) into their underlying NLP task paradigm.

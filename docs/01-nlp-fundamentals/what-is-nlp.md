@@ -10,72 +10,80 @@ Think of how you read a book. You don't just see shapes on a page; you recognize
 
 ---
 
-## 3. Natural vs Programming Language
-Students often confuse the rules of programming with the rules of human language.
+## 3. Natural Language vs. Programming Language
+A foundational concept in NLP is understanding why parsing human text is so much harder than compiling computer code.
 
-### Programming Languages
-- **Strictly defined**: Syntax is mathematically rigid (e.g., Python, C++).
-- **Unambiguous**: A statement in code means exactly one thing to the compiler.
-- **Closed vocabulary**: Limited to defined keywords and variables.
-- **Rule-based**: Governed by strict context-free grammars.
+| Feature | Programming Languages (e.g., Python) | Natural Languages (e.g., English) |
+| :--- | :--- | :--- |
+| **Vocabulary** | Closed (limited to defined keywords) | Open (new words invented constantly like "doomscrolling") |
+| **Syntax** | Rigid and mathematically strict | Flexible and evolving |
+| **Ambiguity** | Unambiguous (one meaning per statement) | Highly ambiguous ("I saw a man with a telescope") |
+| **Context** | Independent (meaning is explicit) | Dependent (meaning relies on tone and situation) |
 
-### Natural Languages
-- **Evolving**: Words change meaning (e.g., "literally").
-- **Highly ambiguous**: "I saw a man with a telescope" has multiple valid parses.
-- **Open vocabulary**: New words are invented constantly (e.g., "selfie", "doomscrolling").
-- **Context-dependent**: Meaning relies heavily on situation, tone, and shared knowledge.
+### Visualizing the Parsing Difference
 
 ```mermaid
-flowchart LR
-    A[Code: 'print(x)'] -->|Unambiguous parsing| B[AST Node: Print]
-    C[Text: 'He is cool'] -->|Ambiguous parsing| D[Meaning: Temperature?]
-    C -->|Ambiguous parsing| E[Meaning: Awesome?]
+flowchart TD
+    subgraph Programming Language
+        A["print(x)"] -->|Deterministic Grammar| B[AST Node: Print]
+    end
+
+    subgraph Natural Language
+        C["He is cool"] -->|Probabilistic Modeling| D[Meaning: Temperature?]
+        C -->|Probabilistic Modeling| E[Meaning: Awesome?]
+    end
 ```
 
 ---
 
-## 4. NLP vs AI vs ML vs Deep Learning
-How does NLP fit into the broader tech ecosystem?
-
-- **Artificial Intelligence (AI)**: The overarching field aiming to create intelligent machines.
-- **Machine Learning (ML)**: A subset of AI where machines learn from data without explicit programming.
-- **Deep Learning (DL)**: A subset of ML using deep neural networks (e.g., Transformers).
-- **NLP**: The domain of AI dealing specifically with text/speech. It heavily utilizes ML and DL.
+## 4. Where NLP Fits in the AI Ecosystem
+NLP is not synonymous with AI; it is a specific domain within it.
 
 ```mermaid
-venn
-    title AI Ecosystem
-    "Artificial Intelligence"
-    "Machine Learning"
-    "Deep Learning"
-    "Natural Language Processing"
+flowchart TD
+    A[Artificial Intelligence] --> B[Machine Learning]
+    A --> C[Robotics]
+    B --> D[Deep Learning]
+    B --> E[Statistical NLP]
+    D --> F[Neural NLP & Transformers]
+    
+    classDef highlight fill:#f9f,stroke:#333,stroke-width:2px;
+    class E,F highlight;
 ```
-*(Note: Mermaid doesn't natively support Venn diagrams perfectly, but conceptually NLP overlaps with ML and AI).*
 
 ---
 
-## 5. Computational Linguistics
-Computational Linguistics (CL) is the theoretical sibling to NLP.
-- **CL**: Focuses on understanding the properties of human language from a computational perspective (answering *science* questions).
-- **NLP**: Focuses on building tools to solve practical problems (answering *engineering* questions).
+## 5. NLP vs Computational Linguistics
+These two fields are siblings but have different goals:
 
-A computational linguist might build formal proofs about the syntactic structure of Hindi. An NLP engineer will build a sentiment classifier for Hindi movie reviews.
+- **Computational Linguistics (CL)**: Focuses on understanding the properties of human language from a computational perspective. **(Goal: Science / Discovery)**
+- **Natural Language Processing (NLP)**: Focuses on building tools to solve practical problems. **(Goal: Engineering / Application)**
+
+*Example*: A computational linguist might build formal mathematical proofs about the syntactic structure of Hindi. An NLP engineer will build a sentiment classifier for Hindi movie reviews.
 
 ---
 
-## 6. Common Mistakes
+## 6. Exam Preparation
+
+### How to Write This in an Exam
+
+**2-Mark Question:** Define Natural Language Processing.
+> **Answer**: Natural Language Processing (NLP) is an interdisciplinary field of AI and linguistics focused on programming computers to process, analyze, and understand large volumes of human language data to perform tasks like translation or sentiment analysis.
+
+**5-Mark Question:** Contrast Natural Languages with Programming Languages in the context of computer processing.
+> **Answer**: 
+> 1. **Ambiguity**: Programming languages are strictly unambiguous, meaning every valid statement compiles to exactly one instruction. Natural languages are inherently ambiguous (e.g., lexical ambiguity where "bank" means a river or a financial institution).
+> 2. **Vocabulary**: Code uses a closed, finite set of keywords. Human language uses an open, constantly evolving vocabulary (e.g., slang).
+> 3. **Rules**: Code relies on strict context-free grammars. Human language rules are flexible and frequently broken in colloquial speech.
+
 > [!WARNING]
-> **Confusing NLP with Simple String Matching**
-> Using Regular Expressions (`re.search`) or basic string manipulation (`.split()`) is just text processing. NLP implies statistical, semantic, or deep syntactic modeling of the text.
+> **Common Mistake**
+> Do not confuse basic string manipulation (like `text.split()` or Regex) with true NLP. NLP implies statistical, semantic, or deep syntactic modeling to extract *meaning*, not just pattern matching.
 
 ---
 
-## 7. Exam Preparation
-### Must Know
-- The formal definition of NLP.
-- Three major differences between natural and programming languages.
-- The distinction between NLP (engineering) and CL (science).
-
-### Likely Theory Question
-**Question**: Explain why a compiler for Python does not require NLP techniques, but a chatbot answering Python queries does.
-**Answer**: Python compilers parse a strict, unambiguous formal language using predefined grammar rules (deterministic). A chatbot must parse human language, which is ambiguous, context-dependent, and relies on probabilistic models to determine the user's intent before formulating a response.
+### Can You Explain This?
+- [ ] I can define NLP.
+- [ ] I can explain the intuition behind why NLP is necessary.
+- [ ] I can list three differences between Natural and Programming languages.
+- [ ] I can differentiate NLP (engineering) from Computational Linguistics (science).

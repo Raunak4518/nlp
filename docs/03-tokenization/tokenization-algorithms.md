@@ -6,17 +6,22 @@ The absolute simplest form of tokenization. It splits text purely on spaces, tab
 ### Scratch Implementation
 ```python
 def whitespace_tokenize(text: str) -> list[str]:
-    # Python's built in .split() with no arguments splits on all whitespace
+    # Python's built-in .split() with no arguments splits on all whitespace
     return text.split()
-
-# Example
-print(whitespace_tokenize("The cat, sat on the mat!"))
-# Output: ['The', 'cat,', 'sat', 'on', 'the', 'mat!']
 ```
-*Notice how the punctuation is glued to the words ("cat,", "mat!"). This inflates the vocabulary unnecessarily.*
+
+### Try It Yourself
+??? question "Trace the code on this input"
+    **Input:** `"The cat, sat on the mat!"`
+    
+    **Output:** `['The', 'cat,', 'sat', 'on', 'the', 'mat!']`
+    
+    *Notice how the punctuation is glued to the words (`cat,`, `mat!`). This inflates the vocabulary unnecessarily because the model will treat `mat` and `mat!` as two completely unrelated words.*
+
+---
 
 ## 2. Punctuation Tokenization
-To fix the issue above, we can separate punctuation from words.
+To fix the vocabulary inflation issue, we can separate punctuation from the alphabetic words.
 
 ### Scratch Implementation
 ```python
@@ -29,15 +34,20 @@ def punctuation_tokenize(text: str) -> list[str]:
     
     # Clean up double spaces and split
     return text.split()
-
-# Example
-print(punctuation_tokenize("The cat, sat on the mat!"))
-# Output: ['The', 'cat', ',', 'sat', 'on', 'the', 'mat', '!']
 ```
-*This is much better for vocabulary size, but it destroys concepts like "U.S.A." or "$100.00" by ripping the punctuation out of them.*
+
+### Try It Yourself
+??? question "Trace the code on this input"
+    **Input:** `"I bought it for $100.00 in the U.S.A."`
+    
+    **Output:** `['I', 'bought', 'it', 'for', '$', '100', '.', '00', 'in', 'the', 'U', '.', 'S', '.', 'A', '.']`
+    
+    *While this solves the vocabulary inflation for simple words, it destroys complex concepts. Ripping the periods out of `U.S.A.` or `100.00` destroys the semantic meaning of the acronym and the decimal.*
+
+---
 
 ## 3. Regex-Based Tokenization
-To handle the edge cases of punctuation tokenization, we define complex Regular Expressions that define exactly what constitutes a valid token (e.g., words, numbers, money, URLs).
+To handle the edge cases of simple punctuation splitting, we define complex Regular Expressions that declare exactly what constitutes a valid token (e.g., words, decimals, money, URLs).
 
 ### Scratch Implementation
 ```python
@@ -46,46 +56,73 @@ import re
 def regex_tokenize(text: str) -> list[str]:
     # Define a regex pattern for valid tokens:
     # 1. Words with optional internal apostrophes (e.g., don't, it's)
-    # 2. Numbers with optional decimals
+    # 2. Numbers with optional decimals (e.g., 99.99)
     # 3. Standalone punctuation
     pattern = r"[a-zA-Z]+'[a-zA-Z]+|[a-zA-Z]+|\d+\.\d+|\d+|[^\w\s]"
     
     return re.findall(pattern, text)
-
-# Example
-print(regex_tokenize("I can't believe it's $99.99!"))
-# Output: ['I', "can't", 'believe', "it's", '$', '99.99', '!']
 ```
 
+### Try It Yourself
+??? question "Trace the code on this input"
+    **Input:** `"I can't believe it's $99.99!"`
+    
+    **Output:** `['I', "can't", 'believe', "it's", '$', '99.99', '!']`
+
+---
+
 ## 4. N-gram Tokenization
-Sometimes, treating single words as tokens removes too much context. An **n-gram** is a contiguous sequence of *n* items from a given text.
-- 1-gram (unigram): ["the", "cat", "sat"]
-- 2-gram (bigram): ["the cat", "cat sat"]
-- 3-gram (trigram): ["the cat sat"]
+Sometimes, treating single words as tokens removes too much context. An **n-gram** is a contiguous sequence of *n* items from a given text sequence.
+
+- **1-gram (unigram)**: `["the", "cat", "sat"]`
+- **2-gram (bigram)**: `["the cat", "cat sat"]`
+- **3-gram (trigram)**: `["the cat sat"]`
+
+### The N-gram Mathematics
+If you have a sequence of $N$ tokens, how many $n$-grams will it produce?
+!!! abstract "N-gram Count Formula"
+    $$ \text{Total N-grams} = N - n + 1 $$
 
 ### Scratch Implementation
 ```python
 def ngram_tokenize(tokens: list[str], n: int) -> list[str]:
     ngrams = []
-    # Loop from 0 to length - n + 1
+    # Loop from 0 to (Total length - n + 1)
     for i in range(len(tokens) - n + 1):
-        # Slice n elements and join them
+        # Slice n elements and join them with a space
         ngram = " ".join(tokens[i : i+n])
         ngrams.append(ngram)
     return ngrams
-
-# Example
-words = ["the", "quick", "brown", "fox"]
-print(ngram_tokenize(words, n=2))
-# Output: ['the quick', 'quick brown', 'brown fox']
 ```
 
-## 5. Exam Preparation
-### Must Be Able To Implement
-You must be able to write the `ngram_tokenize` and `whitespace_tokenize` functions from scratch on an exam using only standard Python.
+---
 
-### Likely Practical Question
-**Question**: Given the sentence "It's raining cats & dogs.", what is the output of a pure whitespace tokenizer vs a punctuation-splitting tokenizer?
-**Answer**:
-- **Whitespace**: `["It's", "raining", "cats", "&", "dogs."]`.
-- **Punctuation**: `["It", "'", "s", "raining", "cats", "&", "dogs", "."]`.
+## 5. Exam Preparation
+
+### How to Write This in an Exam
+
+**5-Mark Question**: Write a Python function from scratch that takes a list of string tokens and an integer $n$, and returns a list of all $n$-grams. Do not use external libraries.
+> **Answer**:
+> ```python
+> def get_ngrams(tokens, n):
+>     ngrams = []
+>     for i in range(len(tokens) - n + 1):
+>         ngrams.append(tokens[i:i+n])
+>     return ngrams
+> ```
+
+**2-Mark Question**: A sentence contains 15 words. If you tokenize it into trigrams ($n=3$), how many trigrams will be produced?
+> **Answer**: Using the formula $N - n + 1$, the calculation is $15 - 3 + 1 = 13$ trigrams.
+
+**3-Mark Question**: Given the sentence `"It's raining cats & dogs."`, state the exact output of a pure whitespace tokenizer versus a pure punctuation-splitting tokenizer.
+> **Answer**:
+> - **Whitespace**: `["It's", "raining", "cats", "&", "dogs."]`.
+> - **Punctuation**: `["It", "'", "s", "raining", "cats", "&", "dogs", "."]`.
+
+---
+
+### Can You Explain This?
+- [ ] I can write a whitespace tokenizer in one line of Python.
+- [ ] I can explain why pure punctuation-splitting breaks decimals and acronyms.
+- [ ] I can write an n-gram extractor from scratch.
+- [ ] I can calculate the exact number of n-grams produced by a sequence of length $N$.
