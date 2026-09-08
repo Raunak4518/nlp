@@ -50,3 +50,141 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+- Home: index.md
+- Syllabus: syllabus.md
+- Study Plan: study-plan.md
+- Exam Preparation: exam-preparation.md
+- 01. NLP Fundamentals:
+  - Overview: 01-nlp-fundamentals/README.md
+  - Challenges in NLP: 01-nlp-fundamentals/challenges-in-nlp.md
+  - Core NLP Tasks: 01-nlp-fundamentals/core-nlp-tasks.md
+  - Machine Learning Foundations in NLP: 01-nlp-fundamentals/machine-learning-foundations.md
+  - NLP Applications & Pipeline Overview: 01-nlp-fundamentals/nlp-applications.md
+  - What is Natural Language Processing?: 01-nlp-fundamentals/what-is-nlp.md
+- 02. NLP Pipeline & Preprocessing:
+  - Overview: 02-nlp-pipeline-and-preprocessing/README.md
+  - Data Collection and Splits: 02-nlp-pipeline-and-preprocessing/data-collection-and-splits.md
+  - Text Cleaning and Normalization: 02-nlp-pipeline-and-preprocessing/text-cleaning-and-normalization.md
+  - Vocabulary Construction and Feature Engineering: 02-nlp-pipeline-and-preprocessing/vocabulary-and-features.md
+- 03. Tokenization:
+  - Overview: 03-tokenization/README.md
+  - Sentence Segmentation: 03-tokenization/sentence-segmentation.md
+  - Tokenization Algorithms & Scratch Implementations: 03-tokenization/tokenization-algorithms.md
+  - Tokenization Fundamentals: 03-tokenization/tokenization-fundamentals.md
+- 04. Regular Expressions:
+  - Overview: 04-regular-expressions/README.md
+  - Advanced Regex and Python implementations: 04-regular-expressions/advanced-regex-and-python.md
+  - Regex Applications & Automata: 04-regular-expressions/regex-applications.md
+  - Regex Fundamentals: 04-regular-expressions/regex-fundamentals.md
+- 05. Finite State Automata:
+  - Overview: 05-finite-state-automata/README.md
+  - Deterministic Finite Automata (DFA): 05-finite-state-automata/dfa.md
+  - Finite State Automata Fundamentals: 05-finite-state-automata/fsa-fundamentals.md
+  - Nondeterministic Finite Automata (NFA): 05-finite-state-automata/nfa.md
+- 06. Finite State Transducers & Morphology:
+  - Overview: 06-finite-state-transducers-and-morphology/README.md
+  - Finite State Transducers: 06-finite-state-transducers-and-morphology/finite-state-transducers.md
+  - Morphology Fundamentals: 06-finite-state-transducers-and-morphology/morphology-fundamentals.md
+- 07. Stemming & Lemmatization:
+  - Overview: 07-stemming-and-lemmatization/README.md
+  - Lemmatization: 07-stemming-and-lemmatization/lemmatization.md
+  - Stemming vs Lemmatization: 07-stemming-and-lemmatization/stemming-vs-lemmatization.md
+  - Stemming: 07-stemming-and-lemmatization/stemming.md
+- 08. POS Tagging & Sequence Labeling:
+  - Overview: 08-pos-tagging-and-sequence-labeling/README.md
+  - Parts of Speech: 08-pos-tagging-and-sequence-labeling/parts-of-speech.md
+  - POS Tagging Algorithms: 08-pos-tagging-and-sequence-labeling/pos-tagging-algorithms.md
+  - Sequence Labeling: 08-pos-tagging-and-sequence-labeling/sequence-labeling-fundamentals.md
+- 09. Named Entity Recognition:
+  - Overview: 09-named-entity-recognition/README.md
+  - Entity Linking: 09-named-entity-recognition/entity-linking.md
+  - Named Entity Recognition Fundamentals: 09-named-entity-recognition/ner-fundamentals.md
+  - NER Tagging and Evaluation: 09-named-entity-recognition/ner-tagging-and-evaluation.md
+- 10. Language Identification:
+  - Overview: 10-language-identification/README.md
+  - Language Identification: 10-language-identification/language-identification-fundamentals.md
+  - N-Gram Language Profiles: 10-language-identification/n-gram-language-profiles.md
+- 11. Parsing & Grammar:
+  - Overview: 11-parsing-and-grammar/README.md
+  - Context-Free Grammars and Constituency Parsing: 11-parsing-and-grammar/cfg-and-constituency.md
+  - Dependency Parsing: 11-parsing-and-grammar/dependency-parsing.md
+  - Parsing Algorithms: 11-parsing-and-grammar/parsing-algorithms.md
+- 12. TF-IDF & Vector Semantics:
+  - Overview: 12-tf-idf-and-vector-semantics/README.md
+  - Bag of Words & Count Vectors: 12-tf-idf-and-vector-semantics/bag-of-words.md
+  - Cosine Similarity & Vector Mathematics: 12-tf-idf-and-vector-semantics/cosine-similarity.md
+  - Term Frequency-Inverse Document Frequency (TF-IDF): 12-tf-idf-and-vector-semantics/tf-idf.md
+- 13. Probability Foundations:
+  - Overview: 13-probability-foundations/README.md
+  - Bayes Theorem and The Chain Rule: 13-probability-foundations/bayes-and-chain-rule.md
+  - Maximum Likelihood Estimation (MLE): 13-probability-foundations/maximum-likelihood-estimation.md
+  - Probability Basics: 13-probability-foundations/probability-basics.md
+- 14. N-gram Language Models:
+  - Overview: 14-n-gram-language-models/README.md
+  - Language Models and N-grams: 14-n-gram-language-models/language-models-and-ngrams.md
+  - N-gram Probabilities: 14-n-gram-language-models/n-gram-probabilities.md
+  - Text Generation and Boundaries: 14-n-gram-language-models/text-generation.md
+- 15. Sparsity & Zero-Probability Problem:
+  - Overview: 15-sparsity-and-zero-probability-problem/README.md
+  - Data Sparsity and Vocabulary Explosion: 15-sparsity-and-zero-probability-problem/data-sparsity.md
+  - The Zero-Probability Problem: 15-sparsity-and-zero-probability-problem/the-zero-probability-problem.md
+- 16. Laplace & Add-k Smoothing:
+  - Overview: 16-laplace-and-add-k-smoothing/README.md
+  - Add-k Smoothing: 16-laplace-and-add-k-smoothing/add-k-smoothing.md
+  - Laplace Smoothing (Add-One): 16-laplace-and-add-k-smoothing/laplace-smoothing.md
+- 17. Interpolation:
+  - Overview: 17-interpolation/README.md
+  - Estimating Interpolation Weights: 17-interpolation/estimating-weights.md
+  - Linear Interpolation: 17-interpolation/linear-interpolation.md
+- 18. Good-Turing Smoothing:
+  - Overview: 18-good-turing-smoothing/README.md
+  - Good-Turing Smoothing: 18-good-turing-smoothing/good-turing-fundamentals.md
+  - Good-Turing Regression: 18-good-turing-smoothing/good-turing-regression.md
+- 19. Witten-Bell Smoothing:
+  - Overview: 19-witten-bell-smoothing/README.md
+  - Witten-Bell Smoothing: 19-witten-bell-smoothing/witten-bell-smoothing.md
+- 20. Backoff & Discounting:
+  - Overview: 20-backoff-and-discounting/README.md
+  - Backoff and Absolute Discounting: 20-backoff-and-discounting/backoff-and-absolute-discounting.md
+  - Katz and Stupid Backoff: 20-backoff-and-discounting/katz-and-stupid-backoff.md
+- 21. Kneser-Ney Smoothing:
+  - Overview: 21-kneser-ney-smoothing/README.md
+  - Interpolated and Recursive Kneser-Ney: 21-kneser-ney-smoothing/interpolated-and-recursive-kneser-ney.md
+  - Kneser-Ney Fundamentals: 21-kneser-ney-smoothing/kneser-ney-fundamentals.md
+- 22. Zipf's Law & Frequency Distributions:
+  - Overview: 22-zipfs-law-and-frequency-distributions/README.md
+  - Zipf's Law and Frequency Distributions: 22-zipfs-law-and-frequency-distributions/zipfs-law.md
+- 23. Perplexity & Language Model Evaluation:
+  - Overview: 23-perplexity-and-language-model-evaluation/README.md
+  - Intrinsic vs Extrinsic Evaluation: 23-perplexity-and-language-model-evaluation/evaluation-methods.md
+  - Perplexity and Log Probabilities: 23-perplexity-and-language-model-evaluation/perplexity-and-log-probabilities.md
+- 24. Byte Pair Encoding (BPE):
+  - Overview: 24-byte-pair-encoding/README.md
+  - Byte Pair Encoding (BPE) Fundamentals: 24-byte-pair-encoding/bpe-fundamentals.md
+  - BPE Implementation and Alternatives: 24-byte-pair-encoding/bpe-implementation-and-alternatives.md
+- 25. Text Classification:
+  - Overview: 25-text-classification/README.md
+  - Text Classification and Naive Bayes: 25-text-classification/classification-and-naive-bayes.md
+  - 'Evaluation Metrics: Precision, Recall, and F1': 25-text-classification/evaluation-metrics.md
+- 26. Sentiment Analysis:
+  - Overview: 26-sentiment-analysis/README.md
+  - Sentiment Analysis: 26-sentiment-analysis/sentiment-analysis.md
+- 27. Sequence Generation:
+  - Overview: 27-sequence-generation/README.md
+  - Sequence Generation and Decoding Strategies: 27-sequence-generation/decoding-strategies.md
+- 28. Machine Translation & Speech:
+  - Overview: 28-machine-translation-and-speech/README.md
+  - Machine Translation: 28-machine-translation-and-speech/machine-translation.md
+  - Speech Processing: 28-machine-translation-and-speech/speech-processing.md
+- 29. Summarization, QA & Information Extraction:
+  - Overview: 29-summarization-qa-and-information-extraction/README.md
+  - QA and Information Extraction: 29-summarization-qa-and-information-extraction/qa-and-information-extraction.md
+  - Summarization: 29-summarization-qa-and-information-extraction/summarization.md
+- 30. Evaluation & Metrics:
+  - Overview: 30-evaluation-and-metrics/README.md
+  - Evaluation & Metrics: 30-evaluation-and-metrics/evaluation-and-metrics.md
+- 31. Final Scratch-Implementation Projects:
+  - Overview: 31-final-scratch-implementation-projects/README.md
+  - Final Scratch-Implementation Projects: 31-final-scratch-implementation-projects/scratch-implementations.md
