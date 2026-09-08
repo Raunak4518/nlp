@@ -4,34 +4,21 @@ with open('SOURCE-COVERAGE.md', 'r', encoding='utf-8') as f:
     content = f.read()
 
 mapping = {
-    "Language model definition": "language-models-and-ngrams.md",
-    "Next-token prediction": "language-models-and-ngrams.md",
-    "Unigram": "language-models-and-ngrams.md",
-    "Bigram": "language-models-and-ngrams.md",
-    "Trigram": "language-models-and-ngrams.md",
-    "4-gram / general N-gram": "language-models-and-ngrams.md",
-    "Word N-grams": "language-models-and-ngrams.md",
-    "Character N-grams": "language-models-and-ngrams.md",
-    "Number of n-grams = N-n+1": "language-models-and-ngrams.md",
-    "Vocabulary size": "language-models-and-ngrams.md",
+    "Data sparsity": "data-sparsity.md",
+    "Vocabulary explosion V²/V³/Vⁿ": "data-sparsity.md",
+    "Sparse count tables": "data-sparsity.md",
     
-    "N-gram count generation": "n-gram-probabilities.md",
-    "MLE unigram probability": "n-gram-probabilities.md",
-    "MLE bigram probability": "n-gram-probabilities.md",
-    "MLE trigram probability": "n-gram-probabilities.md",
-    "Sentence probability": "n-gram-probabilities.md",
-    "N-gram probability numericals": "n-gram-probabilities.md",
-    
-    "<s> start marker": "text-generation.md",
-    "</s> end marker": "text-generation.md",
-    "<UNK> unknown token": "text-generation.md",
-    "Next-word prediction using argmax": "text-generation.md",
-    "Random sentence generation": "text-generation.md",
+    "Unseen N-grams": "the-zero-probability-problem.md",
+    "Zero probability": "the-zero-probability-problem.md",
+    "Zero probability causing sentence probability = 0": "the-zero-probability-problem.md",
+    "Unknown words": "the-zero-probability-problem.md",
+    "Why smoothing is necessary": "the-zero-probability-problem.md",
 }
 
 for item, md_file in mapping.items():
-    pattern = rf"\| {re.escape(item)} \| 14-n-gram-language-models \| TBD \| PENDING \|"
-    replacement = f"| {item} | 14-n-gram-language-models | {md_file} | COMPLETE |"
+    # Because of exponents in V²/V³/Vⁿ, we must use precise matching and escape correctly
+    pattern = rf"\| {re.escape(item)} \| 15-sparsity-and-zero-probability-problem \| TBD \| PENDING \|"
+    replacement = f"| {item} | 15-sparsity-and-zero-probability-problem | {md_file} | COMPLETE |"
     content = re.sub(pattern, lambda m: replacement, content)
 
 with open('SOURCE-COVERAGE.md', 'w', encoding='utf-8') as f:
