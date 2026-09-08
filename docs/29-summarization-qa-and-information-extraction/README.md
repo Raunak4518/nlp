@@ -1,56 +1,47 @@
 # 29. Summarization, QA & Information Extraction
 
-## 1. What this topic is
-This module provides a high-level overview of three major NLP applications: Summarization (shortening text), Question Answering (finding facts in text), and Information Extraction (turning text into structured databases).
+## 1. Topic Overview
+This module provides a high-level overview of three massive real-world NLP applications: **Summarization** (algorithmically shortening text), **Question Answering (QA)** (finding exact facts within text), and **Information Extraction** (converting unstructured text into structured relational databases).
 
-## 2. Why it matters in NLP
-Language Models on their own are just text generators. Wrapping them in these application frameworks turns them into highly lucrative products (like Google Search, ChatGPT, and enterprise knowledge graphs).
+```mermaid
+mindmap
+  root((Applications))
+    Summarization
+      Extractive (Copy/Paste sentences)
+      Abstractive (Rewrite from scratch)
+    Question Answering
+      Retrieval-Based (Search and highlight)
+      Generative (LLM hallucination)
+    Information Extraction
+      NER (Find entities)
+      Entity Linking (Map to database)
+      Relation Extraction (Build Knowledge Graphs)
+```
 
-## 3. What the student will learn
-- The difference between Extractive and Abstractive summarization.
-- How to implement a basic sentence-scoring algorithm using TF-IDF.
-- The difference between Retrieval-based QA and Generative QA.
-- What Entity Linking and Relation Extraction are used for.
+## 2. Learning Path
+1. [Summarization](summarization.md)
+2. [QA and Information Extraction](qa-and-information-extraction.md)
 
-## 4. Prerequisites
-- [09. Named Entity Recognition](../09-named-entity-recognition/README.md)
-- [12. TF-IDF & Vector Semantics](../12-tf-idf-and-vector-semantics/README.md)
+## 3. Real-World Applications
+- **Google Search**: When you type a question into Google and it highlights the exact answer in a box at the top of the screen, you are looking at a **Retrieval-Based QA** system.
+- **Enterprise Knowledge Graphs**: Hedge funds and medical research companies use **Information Extraction** pipelines to automatically read millions of unstructured news articles and clinical trial papers, extracting the entities (Companies, Drugs) and their relations (e.g., `<Apple, ACQUIRED, Beats>`) to build massive, structured, searchable graph databases.
 
-## 5. Complete subtopic list
-- [Summarization](summarization.md)
-- [QA and Information Extraction](qa-and-information-extraction.md)
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★☆☆☆☆ (Very Low - Basic averaging for Extractive sentence scores).
+- **Implementation Difficulty**: ★★☆☆☆ (Low - The classic Extractive Summarization script using TF-IDF is highly intuitive and easy to write from scratch).
+- **Exam Importance**: **Medium**. These topics are usually tested via conceptual multiple-choice questions or short-answer definitions.
 
-## 6. Recommended learning order
-Read sequentially.
+## 5. Prerequisites
+- [09. Named Entity Recognition](../09-named-entity-recognition/README.md) (Crucial: How to identify proper nouns).
+- [12. TF-IDF & Vector Semantics](../12-tf-idf-and-vector-semantics/README.md) (Crucial: How to score the importance of a word for extractive summarization).
 
-## 7. Mathematical difficulty
-★☆☆☆☆ (Very Low - Basic averaging for sentence scores).
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapters 17, 22, and 23.
 
-## 8. Implementation difficulty
-★★☆☆☆ (Low - The extractive summarization script is easy to write).
+---
 
-## 9. Numerical-problem relevance
-**Low**.
-
-## 10. Exam importance
-**Medium**. Usually tested via conceptual multiple-choice questions.
-
-## 11. Common mistakes
-- Forgetting to normalize sentence scores by sentence length when building an extractive summarizer.
-- Confusing NER (which just tags "Apple" as an ORG) with Entity Linking (which maps "Apple" to the database ID for the tech company).
-
-## 12. Related topics
-- [27. Sequence Generation](../27-sequence-generation/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Understand why Abstractive Summarization is much harder than Extractive Summarization.
-- [ ] Define the term "Knowledge Graph" in the context of Relation Extraction.
-
-## 15. Implementation checklist
-- [ ] Trace the Extractive Sentence Scoring Python function.
-
-## 16. Numerical-practice checklist
-- [ ] Given a 3-word sentence and 3 TF-IDF scores, calculate the normalized sentence score.
+### Can You Explain This?
+- [ ] I can explicitly define the fundamental algorithmic difference between Extractive and Abstractive summarization.
+- [ ] I can explicitly define the difference between Retrieval-based QA and Generative QA.
+- [ ] I can explain the difference between classical NER (tagging) and Entity Linking.
+- [ ] I can define the term "Knowledge Graph".

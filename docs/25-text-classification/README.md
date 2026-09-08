@@ -1,58 +1,50 @@
 # 25. Text Classification
 
-## 1. What this topic is
-This module introduces supervised machine learning for NLP. It covers the Naive Bayes algorithm for categorization, and the standard evaluation metrics (Precision, Recall, F1) used to grade classification models.
+## 1. Topic Overview
+This module introduces the massive real-world application of **Supervised Text Classification**. It covers the classical, highly effective **Naive Bayes** algorithm for text categorization, and the universally standard evaluation metrics (Precision, Recall, F1-Score) used by data scientists to rigorously grade the performance of classification models.
 
-## 2. Why it matters in NLP
-Assigning categories to text is one of the most common commercial applications of NLP (e.g., routing customer support tickets to the right department, filtering spam, detecting toxic language). Understanding how to properly evaluate these systems using F1-score instead of Accuracy is critical for any data scientist.
+```mermaid
+mindmap
+  root((Classification))
+    Naive Bayes
+      Bayes' Theorem
+      The "Naive" Assumption (Independence)
+      Requires Laplace Smoothing
+      Operates in Log Space
+    Evaluation Metrics
+      Confusion Matrix (TP, FP, TN, FN)
+      Precision (Quality of Predictions)
+      Recall (Capture Rate of Reality)
+      F1-Score (Harmonic Mean)
+      Why Accuracy Fails
+```
 
-## 3. What the student will learn
-- How Naive Bayes uses Bayes' Theorem to classify documents.
-- Why the "naive" independence assumption is made.
-- Why Laplace smoothing is required for Naive Bayes.
-- How to implement Naive Bayes from scratch using log probabilities.
-- How to calculate Precision, Recall, and F1 from a Confusion Matrix.
+## 2. Learning Path
+1. [Text Classification and Naive Bayes](classification-and-naive-bayes.md)
+2. [Evaluation Metrics: Precision, Recall, and F1](evaluation-metrics.md)
 
-## 4. Prerequisites
-- [12. TF-IDF & Vector Semantics](../12-tf-idf-and-vector-semantics/README.md)
-- [13. Probability Foundations](../13-probability-foundations/README.md)
-- [16. Laplace & Add-k Smoothing](../16-laplace-and-add-k-smoothing/README.md)
+## 3. Real-World Applications
+- **Spam Filtering**: Automatically detecting and categorizing emails as "Spam" or "Not Spam" based on the statistical probabilities of the words they contain.
+- **Support Ticket Routing**: Analyzing the text of an angry customer email and automatically assigning it to the "Billing", "Technical Support", or "Sales" bucket.
+- **Toxicity Detection**: Automatically flagging and hiding extremely toxic or abusive comments on social media platforms.
 
-## 5. Complete subtopic list
-- [Text Classification and Naive Bayes](classification-and-naive-bayes.md)
-- [Evaluation Metrics: Precision, Recall, and F1](evaluation-metrics.md)
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★★★☆☆ (Medium - Requires conceptually combining log probabilities and understanding how to calculate harmonic means).
+- **Implementation Difficulty**: ★★★☆☆ (Medium - Tracking specific vocabularies and class counts across multiple nested dictionaries in Python can be slightly tricky).
+- **Exam Importance**: **Extremely High**. Calculating $P(Class \mid Document)$ by hand, and calculating Precision, Recall, and F1 from a Confusion Matrix are guaranteed to be on almost any NLP or Machine Learning exam.
 
-## 6. Recommended learning order
-Read sequentially.
+## 5. Prerequisites
+- [12. TF-IDF & Vector Semantics](../12-tf-idf-and-vector-semantics/README.md) (Crucial: How to represent documents as bags of words).
+- [13. Probability Foundations](../13-probability-foundations/README.md) (Crucial: Bayes' Theorem).
+- [16. Laplace & Add-k Smoothing](../16-laplace-and-add-k-smoothing/README.md) (Crucial: Solving zero-probability crashes).
 
-## 7. Mathematical difficulty
-★★★☆☆ (Medium - Requires combining log probabilities and calculating harmonic means).
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 4.
 
-## 8. Implementation difficulty
-★★★☆☆ (Medium - Tracking vocabularies and class counts in nested dictionaries).
+---
 
-## 9. Numerical-problem relevance
-**Extremely High**. Calculating P, R, and F1 from a confusing matrix is guaranteed to be on an exam.
-
-## 10. Exam importance
-**Extremely High**.
-
-## 11. Common mistakes
-- Confusing Precision and Recall. Remember: **P**recision is about **P**redictions (denominator is TP+FP). Recall is about Reality (denominator is TP+FN).
-- Forgetting to use Log space, resulting in $0.0$ due to underflow.
-
-## 12. Related topics
-- [26. Sentiment Analysis](../26-sentiment-analysis/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Understand why Accuracy fails on imbalanced datasets.
-- [ ] Memorize the formulas for Precision, Recall, and F1.
-
-## 15. Implementation checklist
-- [ ] Trace the Naive Bayes class prediction loop.
-
-## 16. Numerical-practice checklist
-- [ ] Given $TP=50, FP=10, FN=5$, calculate F1.
+### Can You Explain This?
+- [ ] I can explain mathematically what the "naive" independence assumption is in Naive Bayes.
+- [ ] I can explain why Laplace Smoothing is strictly required for Naive Bayes.
+- [ ] I can explicitly define Precision and Recall.
+- [ ] I can mathematically explain why basic Accuracy fails catastrophically on highly imbalanced datasets.

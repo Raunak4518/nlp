@@ -1,54 +1,48 @@
 # 26. Sentiment Analysis
 
-## 1. What this topic is
-This module applies the text classification techniques learned in Module 25 specifically to the task of Sentiment Analysis (Opinion Mining).
+## 1. Topic Overview
+This module applies the exact statistical text classification techniques mathematically proven in Module 25 specifically to the lucrative task of **Sentiment Analysis** (Opinion Mining). It explores how we can classify the emotional polarity of text using either hardcoded rules (Lexicons) or statistical machine learning (Naive Bayes).
 
-## 2. Why it matters in NLP
-Sentiment Analysis is one of the most commercially valuable NLP tasks. Companies use it to automatically track brand health on social media, analyze product reviews, and flag angry customer support emails for immediate human intervention.
+```mermaid
+mindmap
+  root((Sentiment Analysis))
+    Lexicon Approach
+      Hardcoded Dictionaries
+      Positive / Negative words
+      Scores are summed
+      Fatal Flaw: Negation ("not bad")
+    Statistical Approach
+      Naive Bayes / Logistic Regression
+      Learns from data
+      Bigrams capture negation
+    Evaluation
+      Imbalanced Datasets
+      Must use F1 Score
+      Accuracy is misleading
+```
 
-## 3. What the student will learn
-- The definition of Sentiment Analysis.
-- How Lexicon-based classification works.
-- The severe limitations of Lexicons regarding negation.
-- Why Bigram Naive Bayes solves the negation problem.
-- Why Accuracy is a terrible metric for sentiment datasets.
+## 2. Learning Path
+1. [Sentiment Analysis](sentiment-analysis.md)
 
-## 4. Prerequisites
-- [25. Text Classification](../25-text-classification/README.md)
+## 3. Real-World Applications
+- **Brand Monitoring**: Sentiment Analysis is one of the most commercially valuable NLP tasks on the planet. Massive companies automatically scrape Twitter (X) and Reddit, running Sentiment Analysis over millions of posts to instantly track public opinion after a new product launch.
+- **Support Escalation**: Algorithms instantly flag highly negative, angry customer support emails and automatically route them to the top of the queue for immediate human intervention.
 
-## 5. Complete subtopic list
-- [Sentiment Analysis](sentiment-analysis.md)
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★☆☆☆☆ (Very Low - The lexicon approach requires only basic addition/subtraction).
+- **Implementation Difficulty**: ★☆☆☆☆ (Very Low - The lexicon loop is just a few lines of basic Python dictionary lookups).
+- **Exam Importance**: **Medium**. This topic is almost always tested structurally as an application of Naive Bayes and Evaluation Metrics, rather than a standalone mathematical topic.
 
-## 6. Recommended learning order
-Read sequentially.
+## 5. Prerequisites
+- [25. Text Classification](../25-text-classification/README.md) (Crucial: How Naive Bayes and F1-Scores work).
 
-## 7. Mathematical difficulty
-★☆☆☆☆ (Very Low - Basic summation for Lexicons).
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 4.
 
-## 8. Implementation difficulty
-★☆☆☆☆ (Very Low - The lexicon loop is a few lines of code).
+---
 
-## 9. Numerical-problem relevance
-**Medium**. Scoring a sentence given a small lexicon dictionary is a common short-answer question.
-
-## 10. Exam importance
-**Medium**. Usually tested as an application of Naive Bayes rather than a standalone mathematical topic.
-
-## 11. Common mistakes
-- Assuming Sentiment Analysis is an entirely different algorithm from Text Classification. It is the exact same math, just with the specific labels `POSITIVE` and `NEGATIVE`.
-
-## 12. Related topics
-- [25. Text Classification](../25-text-classification/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Understand why Lexicons fail on phrases like "not terrible".
-- [ ] Explain why F1 score must be used instead of Accuracy for Amazon product reviews.
-
-## 15. Implementation checklist
-- [ ] Trace the Lexicon sentiment loop.
-
-## 16. Numerical-practice checklist
-- [ ] Given a lexicon, calculate the sentiment score of a 5-word sentence.
+### Can You Explain This?
+- [ ] I can explicitly define what a "Lexicon" is in the context of NLP.
+- [ ] I can explain the structural linguistic reason why simple Lexicons fail catastrophically on the phrase "not terrible".
+- [ ] I can explain mathematically how Bigram Naive Bayes solves the negation problem.
+- [ ] I can explain mathematically why Accuracy is a terrible metric for Amazon product reviews.
