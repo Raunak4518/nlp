@@ -1,55 +1,51 @@
 # 12. TF-IDF & Vector Semantics
 
-## 1. What this topic is
-This module introduces the mathematical foundation of converting text into numbers (Vectorization) so that algorithms can process it. It covers Bag of Words, TF-IDF, and measuring similarity using Vector Mathematics.
+## 1. Topic Overview
+This module introduces the critical mathematical foundation of converting raw text strings into numerical vectors (Vectorization) so that machine learning algorithms can process them. It covers the progression from simple Bag of Words, to frequency-weighted TF-IDF, and finally measuring document similarity using Vector Mathematics.
 
-## 2. Why it matters in NLP
-Every search engine in the 1990s and 2000s ran on TF-IDF and Cosine Similarity. Even though modern deep learning uses dense word embeddings (like Word2Vec) rather than sparse TF-IDF vectors, the foundational concepts of comparing mathematical vectors via cosine similarity remain identical.
+```mermaid
+mindmap
+  root((Vector Semantics))
+    Bag of Words
+      Count Vectorization
+      Vocabulary Dimension
+      Ignores word order
+    TF-IDF
+      Term Frequency (TF)
+      Inverse Document Freq (IDF)
+      Punishes common words
+    Vector Math
+      Dot Product
+      Magnitude
+      Cosine Similarity (Angle)
+      Euclidean Distance (Length)
+```
 
-## 3. What the student will learn
-- The definition and flaws of Bag of Words and Count Vectorization.
-- How TF-IDF counteracts frequency bias.
-- How to calculate TF-IDF manually.
-- How to calculate the dot product, vector magnitude, and cosine similarity.
+## 2. Learning Path
+1. [Bag of Words & Count Vectors](bag-of-words.md)
+2. [Term Frequency-Inverse Document Frequency (TF-IDF)](tf-idf.md)
+3. [Cosine Similarity & Vector Mathematics](cosine-similarity.md)
 
-## 4. Prerequisites
+## 3. Real-World Applications
+- **Classic Search Engines**: Every major search engine in the late 1990s and early 2000s ran on TF-IDF and Cosine Similarity. When you type a query, the engine converts your query into a TF-IDF vector, calculates the Cosine Similarity against millions of document vectors in its database, and returns the documents with the highest similarity score.
+- **Plagiarism Detection**: By converting two student essays into vectors, you can calculate the angle between them. If the angle is 0 (Cosine Similarity of 1), the documents use the exact same vocabulary frequencies, heavily implying plagiarism.
+
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★★★☆☆ (Medium - Requires calculating logarithms, dot products, vector magnitudes, and square roots)
+- **Implementation Difficulty**: ★☆☆☆☆ (Very Low - Basic mathematical operations in Python)
+- **Exam Importance**: **Extremely High**. Calculating TF-IDF values and Cosine Similarity by hand are absolute staple questions on any NLP or Information Retrieval exam. Expect heavy numerical problems.
+
+## 5. Prerequisites
 - Basic Algebra.
-- [03. Tokenization](../03-tokenization/README.md)
+- [03. Tokenization](../03-tokenization/README.md) (Understanding how text is split into the terms that make up the vocabulary).
 
-## 5. Complete subtopic list
-- [Bag of Words & Count Vectors](bag-of-words.md)
-- [Term Frequency-Inverse Document Frequency (TF-IDF)](tf-idf.md)
-- [Cosine Similarity & Vector Mathematics](cosine-similarity.md)
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 6.
 
-## 6. Recommended learning order
-Read sequentially.
+---
 
-## 7. Mathematical difficulty
-★★★☆☆ (Medium - Requires calculating logarithms, dot products, and square roots)
-
-## 8. Implementation difficulty
-★☆☆☆☆ (Very Low)
-
-## 9. Numerical-problem relevance
-**Extremely High**. Calculating TF-IDF and Cosine Similarity by hand are staple questions on NLP exams.
-
-## 10. Exam importance
-**Extremely High**. Expect heavy numerical problems from this module.
-
-## 11. Common mistakes
-- Using Euclidean distance instead of Cosine similarity.
-- Forgetting that $IDF = \log(N / DF)$, not $\log(DF / N)$.
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Understand why "the" gets an IDF score of 0.
-- [ ] Memorize the Cosine Similarity formula.
-
-## 15. Implementation checklist
-- [ ] N/A
-
-## 16. Numerical-practice checklist
-- [ ] Given three documents, calculate the TF-IDF vector for Document 1.
-- [ ] Calculate the Cosine Similarity between $[2, 0, 1]$ and $[1, 1, 1]$.
+### Can You Explain This?
+- [ ] I can explain what dimension a Bag of Words vector lives in.
+- [ ] I can explain what specific problem TF-IDF solves that Count Vectorization cannot.
+- [ ] I can explain why "the" receives an IDF score of $0$.
+- [ ] I can explain why Cosine Similarity is heavily preferred over Euclidean Distance for document comparison.

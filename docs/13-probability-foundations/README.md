@@ -1,57 +1,47 @@
 # 13. Probability Foundations
 
-## 1. What this topic is
-This module is a brief review of the core mathematical statistics required to understand Language Models.
+## 1. Topic Overview
+This module provides a brief but critical review of the core mathematical statistics required to understand how Language Models (like N-Grams and modern LLMs) predict text, and how classifiers (like Naive Bayes) categorize text.
 
-## 2. Why it matters in NLP
-Every time you use an autocomplete feature on your phone or ask ChatGPT a question, the underlying model is calculating the conditional probability of the next word given the previous words using the Chain Rule of Probability.
+```mermaid
+mindmap
+  root((Probability in NLP))
+    Core Concepts
+      Joint Probability P(A,B)
+      Conditional Probability P(A|B)
+      Marginal Probability P(A)
+    Theorems
+      Bayes Theorem
+      The Chain Rule
+    Estimation
+      Maximum Likelihood (MLE)
+      Counting Frequencies
+```
 
-## 3. What the student will learn
-- The difference between Joint, Conditional, and Marginal probability.
-- How to apply Bayes' Theorem.
-- How to expand joint probabilities using the Chain Rule.
-- How to estimate probabilities from raw text counts using MLE.
+## 2. Learning Path
+1. [Probability Basics](probability-basics.md)
+2. [Bayes Theorem and The Chain Rule](bayes-and-chain-rule.md)
+3. [Maximum Likelihood Estimation (MLE)](maximum-likelihood-estimation.md)
 
-## 4. Prerequisites
-- Basic Algebra.
+## 3. Real-World Applications
+- **Autocompletion & Generative AI**: Every time you use an autocomplete feature on your phone or ask ChatGPT a question, the underlying model is doing exactly one thing: calculating the mathematical *Conditional Probability* of the next word given the sequence of previous words, heavily relying on the Chain Rule of Probability.
+- **Spam Filtering**: Email systems use Bayes' Theorem to calculate the probability that an email is `SPAM` given the presence of words like "Free" and "Winner" in the text.
 
-## 5. Complete subtopic list
-- [Probability Basics](probability-basics.md)
-- [Bayes Theorem and The Chain Rule](bayes-and-chain-rule.md)
-- [Maximum Likelihood Estimation (MLE)](maximum-likelihood-estimation.md)
+## 4. Difficulty & Importance
+- **Mathematical Difficulty**: ★★★☆☆ (Medium - Requires understanding formal probability notation and fractions)
+- **Implementation Difficulty**: ★☆☆☆☆ (Very Low - Calculating counts from text is just simple division in Python)
+- **Exam Importance**: **Medium-High**. The concepts here are fundamental prerequisites for N-gram Language Models and Naive Bayes classifiers. Calculating conditional probabilities from a tiny toy corpus is a guaranteed exam question.
 
-## 6. Recommended learning order
-Read sequentially.
+## 5. Prerequisites
+- Basic Algebra (Fractions and division).
 
-## 7. Mathematical difficulty
-★★★☆☆ (Medium - Requires understanding formal probability notation)
+## 6. External Resources
+- 📘 **Textbook**: *Speech and Language Processing* (Jurafsky & Martin), Chapter 3.
 
-## 8. Implementation difficulty
-★☆☆☆☆ (Very Low - Calculating counts is simple division)
+---
 
-## 9. Numerical-problem relevance
-**High**. Calculating conditional probabilities from raw frequency counts is guaranteed to be on an exam.
-
-## 10. Exam importance
-**Medium-High**. The concepts here are fundamental prerequisites for N-gram Language Models and Naive Bayes classifiers.
-
-## 11. Common mistakes
-- Confusing $P(A|B)$ with $P(A, B)$. $P(A|B)$ assumes $B$ has already happened, so the denominator is only the count of $B$. $P(A, B)$ is the probability of both happening out of the *entire* dataset.
-- Forgetting that the probabilities of all possible next words must sum to $1.0$.
-
-## 12. Related topics
-- [14. N-gram Language Models](../14-n-gram-language-models/README.md)
-- [25. Text Classification](../25-text-classification/README.md)
-
-## 13. Links to every subtopic
-(See section 5)
-
-## 14. Revision checklist
-- [ ] Memorize the Chain Rule expansion.
-- [ ] Understand why MLE fails for unseen words.
-
-## 15. Implementation checklist
-- [ ] N/A
-
-## 16. Numerical-practice checklist
-- [ ] Calculate $P(\text{"word2"} | \text{"word1"})$ given a small 3-sentence corpus.
+### Can You Explain This?
+- [ ] I can clearly explain the difference between Joint Probability $P(A,B)$ and Conditional Probability $P(A|B)$.
+- [ ] I can write the formula for Bayes' Theorem.
+- [ ] I can write out the Chain Rule expansion for the sequence $P(w_1, w_2, w_3)$.
+- [ ] I can explain what Maximum Likelihood Estimation (MLE) is in the context of counting words in a text corpus.
