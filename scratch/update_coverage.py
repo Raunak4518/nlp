@@ -3,31 +3,31 @@ import re
 with open('SOURCE-COVERAGE.md', 'r', encoding='utf-8') as f:
     content = f.read()
 
-# Replace TBD and PENDING with the actual files for module 2
+# Replace TBD and PENDING with the actual files for module 3
 mapping = {
-    "Data collection": "data-collection-and-splits.md",
-    "Train/test split": "data-collection-and-splits.md",
-    "Validation set": "data-collection-and-splits.md",
-    "Data leakage": "data-collection-and-splits.md",
-    "Model training": "data-collection-and-splits.md",
-    "Model evaluation": "data-collection-and-splits.md",
+    "Definition and purpose of tokenization": "tokenization-fundamentals.md",
+    "Character units": "tokenization-fundamentals.md",
+    "Word units": "tokenization-fundamentals.md",
+    "Sentence units": "tokenization-fundamentals.md",
+    "Paragraph/document/corpus": "tokenization-fundamentals.md",
+    "Character tokenization": "tokenization-fundamentals.md",
+    "Word tokenization": "tokenization-fundamentals.md",
+    "Subword tokenization": "tokenization-fundamentals.md",
+    "Unknown-token handling (<UNK>)": "tokenization-fundamentals.md",
     
-    "Text cleaning": "text-cleaning-and-normalization.md",
-    "Normalization": "text-cleaning-and-normalization.md",
-    "Lowercasing / uppercasing": "text-cleaning-and-normalization.md",
-    "Whitespace normalization": "text-cleaning-and-normalization.md",
-    "Punctuation normalization": "text-cleaning-and-normalization.md",
-    "Unicode normalization": "text-cleaning-and-normalization.md",
-    "Numbers, URLs, emails, hashtags and mentions": "text-cleaning-and-normalization.md",
-    "Special-character handling": "text-cleaning-and-normalization.md",
+    "Sentence segmentation": "sentence-segmentation.md",
+    "Sentence boundary markers": "sentence-segmentation.md",
+    "Handling abbreviations such as Dr./Mr./Mrs.": "sentence-segmentation.md",
     
-    "Vocabulary construction": "vocabulary-and-features.md",
-    "Feature engineering": "vocabulary-and-features.md",
+    "Whitespace tokenization": "tokenization-algorithms.md",
+    "Punctuation tokenization": "tokenization-algorithms.md",
+    "Regex-based tokenization": "tokenization-algorithms.md",
+    "N-gram tokenization": "tokenization-algorithms.md",
 }
 
 for item, md_file in mapping.items():
-    pattern = rf"\| {re.escape(item)} \| 02-nlp-pipeline-and-preprocessing \| TBD \| PENDING \|"
-    replacement = f"| {item} | 02-nlp-pipeline-and-preprocessing | {md_file} | COMPLETE |"
+    pattern = rf"\| {re.escape(item)} \| 03-tokenization \| TBD \| PENDING \|"
+    replacement = f"| {item} | 03-tokenization | {md_file} | COMPLETE |"
     content = re.sub(pattern, replacement, content)
 
 with open('SOURCE-COVERAGE.md', 'w', encoding='utf-8') as f:
